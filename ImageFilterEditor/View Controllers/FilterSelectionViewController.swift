@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import CoreImage
+import CoreImage.CIFilterBuiltins
+import Photos
 
 class FilterSelectionViewController: UIViewController {
     
@@ -83,7 +86,11 @@ extension FilterSelectionViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        index = indexPath.item
+        guard let image = scaledImage else { return }
+        let index = indexPath.item
+        let filter = filters[index]
+        imageView.image = filter.filterImage(image)
+        
     }
 }
 

@@ -6,6 +6,7 @@
 //  Copyright © 2020 Christopher Devito. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import CoreImage
 import CoreImage.CIFilterBuiltins
@@ -15,7 +16,7 @@ struct CustomFilter {
     var filterType: CIFilter
     let context = CIContext(options: nil)
     
-    func filterImage(_ image: UIImage, filterValue: CGFloat) -> UIImage? {
+    public func filterImage(_ image: UIImage) -> UIImage? {
         
         // UIImage -> CGImage -> CIImage
         guard let cgImage = image.cgImage else { return nil }

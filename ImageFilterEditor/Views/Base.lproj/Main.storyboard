@@ -110,7 +110,7 @@
                     <connections>
                         <outlet property="filterCollectionView" destination="86w-h5-XRw" id="4Af-6R-OqH"/>
                         <outlet property="imageView" destination="sxp-km-vFn" id="fpe-yp-6xh"/>
-                        <segue destination="uSb-FD-2Qx" kind="show" id="3qi-Zu-J6g"/>
+                        <segue destination="uSb-FD-2Qx" kind="show" identifier="EditFilterSegue" id="3qi-Zu-J6g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
