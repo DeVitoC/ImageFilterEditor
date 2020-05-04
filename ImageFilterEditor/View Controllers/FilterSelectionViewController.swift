@@ -11,39 +11,79 @@ import UIKit
 class FilterSelectionViewController: UIViewController {
     
     // MARK: - Properties
+    let filterController = FilterController()
+    var filters: [CustomFilter] = []
+    var originalImage: UIImage? {
+        didSet {
+            // resize the scaledImage and set it
+            guard let originalImage = originalImage else { return }
+            
+            var scaledSize = imageView.bounds.size
+            let scale = UIScreen.main.scale
+            
+            scaledSize = CGSize(width: scaledSize.width * scale, height: scaledSize.height * scale)
+            
+            scaledImage = originalImage.imageByScaling(toSize: scaledSize)
+        }
+    }
+    var scaledImage: UIImage? {
+        didSet {
+            updateViews()
+        }
+    }
+    
+    var index: Int?
     
     // MARK: - IBOutlets
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var filterCollectionView: UICollectionView!
     
     // MARK: - IBActions
     @IBAction func selectPictureButton(_ sender: Any) {
+        
     }
     
+    @IBAction func editFilterButton(_ sender: Any) {
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        filterCollectionView.delegate = self
+        filterCollectionView.dataSource = self
+        filters = filterController.filters
+        originalImage = UIImage(named: "flyingSideKick")
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func updateViews() {
+        imageView.image = scaledImage
+        filterCollectionView.reloadData()
     }
-    */
 
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+    }
+
+    @IBAction func unwindSegue(unwindSegue: UIStoryboardSegue) {
+        
+    }
 }
 
 extension FilterSelectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        <#code#>
+        filters.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
+        guard let cell = filterCollectionView.dequeueReusableCell(withReuseIdentifier: "FilterCell", for: indexPath) as? FilterTypeCollectionViewCell else { return UICollectionViewCell() }
+        cell.filter = filters[indexPath.item]
+        cell.image = scaledImage
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        index = indexPath.item
     }
 }
 

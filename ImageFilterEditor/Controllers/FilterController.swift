@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+class FilterController {
+    
+    var filters: [CustomFilter] = [distortionFilter]
+}

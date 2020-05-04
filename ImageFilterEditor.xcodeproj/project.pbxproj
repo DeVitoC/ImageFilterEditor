@@ -14,9 +14,11 @@
 		E21C38CD2460AEBE0095F7B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E21C38CB2460AEBE0095F7B4 /* LaunchScreen.storyboard */; };
 		E21C38D92460B36C0095F7B4 /* FilterSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21C38D82460B36C0095F7B4 /* FilterSelectionViewController.swift */; };
 		E21C38DB2460B3870095F7B4 /* FilterTypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21C38DA2460B3870095F7B4 /* FilterTypeCollectionViewCell.swift */; };
-		E21C38E02460B5330095F7B4 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21C38DF2460B5330095F7B4 /* Filter.swift */; };
+		E21C38E02460B5330095F7B4 /* CustomFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21C38DF2460B5330095F7B4 /* CustomFilter.swift */; };
 		E21C38E22460B5430095F7B4 /* FilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21C38E12460B5430095F7B4 /* FilterController.swift */; };
 		E21C38E42460B5720095F7B4 /* UIImage+Scaling.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21C38E32460B5720095F7B4 /* UIImage+Scaling.swift */; };
+		E21C38E62460BC240095F7B4 /* MyFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21C38E52460BC240095F7B4 /* MyFilters.swift */; };
+		E21C38E82460D1470095F7B4 /* ApplyFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21C38E72460D1470095F7B4 /* ApplyFilterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,9 +31,11 @@
 		E21C38CE2460AEBE0095F7B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E21C38D82460B36C0095F7B4 /* FilterSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterSelectionViewController.swift; sourceTree = "<group>"; };
 		E21C38DA2460B3870095F7B4 /* FilterTypeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTypeCollectionViewCell.swift; sourceTree = "<group>"; };
-		E21C38DF2460B5330095F7B4 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		E21C38DF2460B5330095F7B4 /* CustomFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFilter.swift; sourceTree = "<group>"; };
 		E21C38E12460B5430095F7B4 /* FilterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterController.swift; sourceTree = "<group>"; };
 		E21C38E32460B5720095F7B4 /* UIImage+Scaling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Scaling.swift"; sourceTree = "<group>"; };
+		E21C38E52460BC240095F7B4 /* MyFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFilters.swift; sourceTree = "<group>"; };
+		E21C38E72460D1470095F7B4 /* ApplyFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyFilterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,7 @@
 				E21C38CB2460AEBE0095F7B4 /* LaunchScreen.storyboard */,
 				E21C38CE2460AEBE0095F7B4 /* Info.plist */,
 				E21C38E32460B5720095F7B4 /* UIImage+Scaling.swift */,
+				E21C38E52460BC240095F7B4 /* MyFilters.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -98,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				E21C38D82460B36C0095F7B4 /* FilterSelectionViewController.swift */,
+				E21C38E72460D1470095F7B4 /* ApplyFilterViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -114,7 +120,7 @@
 		E21C38DE2460B5240095F7B4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E21C38DF2460B5330095F7B4 /* Filter.swift */,
+				E21C38DF2460B5330095F7B4 /* CustomFilter.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -191,11 +197,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E21C38DB2460B3870095F7B4 /* FilterTypeCollectionViewCell.swift in Sources */,
-				E21C38E02460B5330095F7B4 /* Filter.swift in Sources */,
+				E21C38E62460BC240095F7B4 /* MyFilters.swift in Sources */,
+				E21C38E02460B5330095F7B4 /* CustomFilter.swift in Sources */,
 				E21C38C12460AEBB0095F7B4 /* AppDelegate.swift in Sources */,
 				E21C38E22460B5430095F7B4 /* FilterController.swift in Sources */,
 				E21C38C32460AEBB0095F7B4 /* SceneDelegate.swift in Sources */,
 				E21C38D92460B36C0095F7B4 /* FilterSelectionViewController.swift in Sources */,
+				E21C38E82460D1470095F7B4 /* ApplyFilterViewController.swift in Sources */,
 				E21C38E42460B5720095F7B4 /* UIImage+Scaling.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
