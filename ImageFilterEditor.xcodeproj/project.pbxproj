@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		E21C38C12460AEBB0095F7B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21C38C02460AEBB0095F7B4 /* AppDelegate.swift */; };
 		E21C38C32460AEBB0095F7B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21C38C22460AEBB0095F7B4 /* SceneDelegate.swift */; };
-		E21C38C52460AEBB0095F7B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21C38C42460AEBB0095F7B4 /* ViewController.swift */; };
 		E21C38C82460AEBB0095F7B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E21C38C62460AEBB0095F7B4 /* Main.storyboard */; };
 		E21C38CA2460AEBE0095F7B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E21C38C92460AEBE0095F7B4 /* Assets.xcassets */; };
 		E21C38CD2460AEBE0095F7B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E21C38CB2460AEBE0095F7B4 /* LaunchScreen.storyboard */; };
@@ -19,7 +18,6 @@
 		E21C38BD2460AEBB0095F7B4 /* ImageFilterEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageFilterEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E21C38C02460AEBB0095F7B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E21C38C22460AEBB0095F7B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E21C38C42460AEBB0095F7B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E21C38C72460AEBB0095F7B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E21C38C92460AEBE0095F7B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E21C38CC2460AEBE0095F7B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,15 +54,46 @@
 		E21C38BF2460AEBB0095F7B4 /* ImageFilterEditor */ = {
 			isa = PBXGroup;
 			children = (
+				E21C38D72460B3070095F7B4 /* Views */,
+				E21C38D62460B2FE0095F7B4 /* View Controllers */,
+				E21C38D52460B2F40095F7B4 /* Controllers */,
+				E21C38D42460AF050095F7B4 /* Resources */,
+			);
+			path = ImageFilterEditor;
+			sourceTree = "<group>";
+		};
+		E21C38D42460AF050095F7B4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				E21C38C02460AEBB0095F7B4 /* AppDelegate.swift */,
 				E21C38C22460AEBB0095F7B4 /* SceneDelegate.swift */,
-				E21C38C42460AEBB0095F7B4 /* ViewController.swift */,
-				E21C38C62460AEBB0095F7B4 /* Main.storyboard */,
 				E21C38C92460AEBE0095F7B4 /* Assets.xcassets */,
 				E21C38CB2460AEBE0095F7B4 /* LaunchScreen.storyboard */,
 				E21C38CE2460AEBE0095F7B4 /* Info.plist */,
 			);
-			path = ImageFilterEditor;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E21C38D52460B2F40095F7B4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E21C38D62460B2FE0095F7B4 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		E21C38D72460B3070095F7B4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E21C38C62460AEBB0095F7B4 /* Main.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +167,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E21C38C52460AEBB0095F7B4 /* ViewController.swift in Sources */,
 				E21C38C12460AEBB0095F7B4 /* AppDelegate.swift in Sources */,
 				E21C38C32460AEBB0095F7B4 /* SceneDelegate.swift in Sources */,
 			);
@@ -286,7 +314,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8825K9HH49;
-				INFOPLIST_FILE = ImageFilterEditor/Info.plist;
+				INFOPLIST_FILE = ImageFilterEditor/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,7 +332,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8825K9HH49;
-				INFOPLIST_FILE = ImageFilterEditor/Info.plist;
+				INFOPLIST_FILE = ImageFilterEditor/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
