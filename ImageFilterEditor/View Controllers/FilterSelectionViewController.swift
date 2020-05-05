@@ -65,11 +65,17 @@ class FilterSelectionViewController: UIViewController {
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.identifier == "EditFilterSegue" {
+            guard let index = index else { return }
+            let editFilterVC = segue.destination as! ApplyFilterViewController
+            editFilterVC.filter = filters[index]
+            editFilterVC.filterController = filterController
+            editFilterVC.image = scaledImage
+        }
     }
 
     @IBAction func unwindSegue(unwindSegue: UIStoryboardSegue) {
-        
+        updateViews()
     }
 }
 
