@@ -35,6 +35,7 @@ class FilterSelectionViewController: UIViewController {
         }
     }
     
+    var savedOriginalImage: UIImage?
     var index: Int?
     
     // MARK: - IBOutlets
@@ -49,13 +50,17 @@ class FilterSelectionViewController: UIViewController {
     @IBAction func editFilterButton(_ sender: Any) {
         performSegue(withIdentifier: "EditFilterSegue", sender: self)
     }
-
+    @IBAction func resetButton(_ sender: Any) {
+        imageView.image = savedOriginalImage
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         filterCollectionView.delegate = self
         filterCollectionView.dataSource = self
         filters = filterController.filters
         originalImage = UIImage(named: "flyingSideKick")
+        savedOriginalImage = originalImage
     }
     
     func updateViews() {

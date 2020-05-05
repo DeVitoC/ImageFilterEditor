@@ -14,6 +14,7 @@ import Photos
 
 struct CustomFilter {
     var filterType: CIFilter
+    let name: String
     let context = CIContext(options: nil)
     var center: CGPoint?
     var radius: CGFloat?

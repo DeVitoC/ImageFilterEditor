@@ -91,6 +91,7 @@
                         <constraints>
                             <constraint firstItem="vfe-3H-vaG" firstAttribute="top" secondItem="86w-h5-XRw" secondAttribute="bottom" constant="20" id="DmZ-26-xJr"/>
                             <constraint firstItem="86w-h5-XRw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="IZQ-w3-dbj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="vfe-3H-vaG" secondAttribute="bottom" id="Mxc-k2-MRg"/>
                             <constraint firstItem="vfe-3H-vaG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NaE-Df-FLq"/>
                             <constraint firstItem="sxp-km-vFn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="YOy-Li-lfS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="86w-h5-XRw" secondAttribute="trailing" constant="10" id="aZW-xO-f5Z"/>
@@ -101,11 +102,18 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="lW0-R0-Hu2">
-                        <barButtonItem key="rightBarButtonItem" title="Select Picture" id="iZU-O2-Wt7">
-                            <connections>
-                                <action selector="selectPictureButton:" destination="BYZ-38-t0r" id="paQ-fb-xBW"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Select Picture" id="iZU-O2-Wt7">
+                                <connections>
+                                    <action selector="selectPictureButton:" destination="BYZ-38-t0r" id="paQ-fb-xBW"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Reset Picture" id="ECw-rM-iuM">
+                                <connections>
+                                    <action selector="resetButton:" destination="BYZ-38-t0r" id="dLT-jW-Ubb"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="filterCollectionView" destination="86w-h5-XRw" id="4Af-6R-OqH"/>

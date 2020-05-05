@@ -24,6 +24,6 @@ class FilterTypeCollectionViewCell: UICollectionViewCell {
     
     func setView() {
         filterImageView.image = image
-        imageTypeLabel.text = filter?.filterType.name
+        imageTypeLabel.text = filter?.name
     }
 }
