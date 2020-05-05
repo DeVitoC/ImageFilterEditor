@@ -10,5 +10,5 @@ import Foundation
 
 class FilterController {
     
-    var filters: [CustomFilter] = [distortionFilter]
+    var filters: [CustomFilter] = [distortionFilter, circleSplashFilter]
 }

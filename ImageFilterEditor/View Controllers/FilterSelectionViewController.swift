@@ -47,7 +47,7 @@ class FilterSelectionViewController: UIViewController {
     }
     
     @IBAction func editFilterButton(_ sender: Any) {
-        
+        performSegue(withIdentifier: "EditFilterSegue", sender: self)
     }
 
     override func viewDidLoad() {
@@ -79,18 +79,26 @@ extension FilterSelectionViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = filterCollectionView.dequeueReusableCell(withReuseIdentifier: "FilterCell", for: indexPath) as? FilterTypeCollectionViewCell else { return UICollectionViewCell() }
-        cell.filter = filters[indexPath.item]
-        cell.image = scaledImage
+        guard let cell = filterCollectionView.dequeueReusableCell(withReuseIdentifier: "FilterCell", for: indexPath) as? FilterTypeCollectionViewCell, let scaledImage = scaledImage else { return UICollectionViewCell() }
+        var filter = filters[indexPath.item]
+        cell.filter = filter
+        cell.image = filter.filterImage(scaledImage, filterValue: 1, centerPoint: CGPoint(x: scaledImage.size.width/2, y: scaledImage.size.height/2), radius: scaledImage.size.height/4)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let image = scaledImage else { return }
         let index = indexPath.item
-        let filter = filters[index]
-        imageView.image = filter.filterImage(image)
-        
+        self.index = index
+        var filter = filters[index]
+        imageView.image = filter.filterImage(image, filterValue: 1, centerPoint: CGPoint(x: image.size.width/2, y: image.size.height/2), radius: image.size.height/4)
+        filterCollectionView.cellForItem(at: indexPath)?.layer.borderWidth = 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        filterCollectionView.cellForItem(at: indexPath)?.layer.borderWidth = 0
+        index = nil
+        imageView.image = scaledImage
     }
 }
 

@@ -11,4 +11,6 @@ import CoreImage
 import CoreImage.CIFilterBuiltins
 
 
-let distortionFilter: CustomFilter = CustomFilter(filterType: CIFilter(name: "CIBumpDistortion")!)
+let distortionFilter: CustomFilter = CustomFilter(filterType: CIFilter(name: "CIBumpDistortion")!, center: .zero, radius: 200, scale: 1)
+
+let circleSplashFilter: CustomFilter = CustomFilter(filterType: CIFilter(name: "CICircleSplashDistortion")!, center: .zero, radius: 200)
