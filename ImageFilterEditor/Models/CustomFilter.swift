@@ -19,8 +19,9 @@ struct CustomFilter {
     var radius: CGFloat?
     var scale: CGFloat?
     var angle: NSNumber?
+    var intensity: NSNumber?
     
-    public mutating func filterImage(_ image: UIImage, filterValue: CGFloat? = nil, centerPoint: CGPoint? = .zero, radius: CGFloat? = nil, angle: NSNumber? = nil) -> UIImage? {
+    public mutating func filterImage(_ image: UIImage, filterValue: CGFloat? = nil, centerPoint: CGPoint? = .zero, radius: CGFloat? = nil, angle: NSNumber? = nil, intensity: NSNumber? = nil) -> UIImage? {
         
         // UIImage -> CGImage -> CIImage
         guard let cgImage = image.cgImage else { return nil }

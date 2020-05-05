@@ -20,11 +20,11 @@ class ApplyFilterViewController: UIViewController {
     @IBOutlet weak var scaleSlider: UISlider!
     @IBOutlet weak var radiusSlider: UISlider!
     @IBOutlet weak var angleSlider: UISlider!
-    @IBOutlet weak var fourthSlider: UISlider!
+    @IBOutlet weak var intensitySlider: UISlider!
     @IBOutlet weak var scaleStackView: UIStackView!
     @IBOutlet weak var radiusStackView: UIStackView!
-    @IBOutlet weak var AngleStackView: UIStackView!
-    @IBOutlet weak var fourthStackView: UIStackView!
+    @IBOutlet weak var angleStackView: UIStackView!
+    @IBOutlet weak var intensityStackView: UIStackView!
     
     // MARK: - IBActions
     @IBAction func scaleChanged(_ sender: Any) {
@@ -36,17 +36,24 @@ class ApplyFilterViewController: UIViewController {
     @IBAction func angleChanged(_ sender: Any) {
         updateViews()
     }
-    @IBAction func fourthChanged(_ sender: Any) {
+    @IBAction func intensityChanged(_ sender: Any) {
         updateViews()
     }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setViews()
     }
     
     func setViews() {
+        setRadius()
+        setScale()
+        setAngle()
+        setIntensity()
+        setImage()
+    }
+    
+    func setRadius() {
         if filter?.radius == nil {
             radiusStackView.isHidden = true
         } else {
@@ -56,7 +63,11 @@ class ApplyFilterViewController: UIViewController {
             radiusSlider.maximumValue = ((height > width) ? (width/2) : (height/2))
             radiusSlider.minimumValue = 0
             radiusSlider.value = radiusSlider.maximumValue/2
+            
         }
+    }
+    
+    func setScale() {
         if filter?.scale == nil {
             scaleStackView.isHidden = true
         } else {
@@ -64,38 +75,47 @@ class ApplyFilterViewController: UIViewController {
             scaleSlider.minimumValue = -1.0
             scaleSlider.value = 0.5
         }
+    }
+    
+    func setAngle() {
         if filter?.angle == nil {
-            AngleStackView.isHidden = true
+            angleStackView.isHidden = true
         } else {
             angleSlider.maximumValue = 100
             angleSlider.minimumValue = 0.00
             angleSlider.value = 0.00
         }
-        fourthStackView.isHidden = true
+    }
+    
+    func setIntensity() {
+        if filter?.intensity == nil {
+            intensityStackView.isHidden = true
+        } else {
+            intensitySlider.maximumValue = 1
+            intensitySlider.minimumValue = 0
+            intensitySlider.value = 0.5
+        }
+    }
+    
+    func setImage() {
         if let image = image {
-            imageView.image = filter?.filterImage(image, filterValue: CGFloat(scaleSlider.value), centerPoint: CGPoint(x: image.size.width/2, y: image.size.height/2), radius: CGFloat(radiusSlider.value), angle: NSNumber(value: angleSlider.value))
+            imageView.image = filter?.filterImage(image, filterValue: CGFloat(scaleSlider.value), centerPoint: CGPoint(x: image.size.width/2, y: image.size.height/2), radius: CGFloat(radiusSlider.value), angle: NSNumber(value: angleSlider.value), intensity: NSNumber(value: intensitySlider.value))
         } else {
             imageView.image = nil
         }
     }
     
     func updateViews() {
-        if let image = image {
-            imageView.image = filter?.filterImage(image, filterValue: CGFloat(scaleSlider.value), centerPoint: CGPoint(x: image.size.width/2, y: image.size.height/2), radius: CGFloat(radiusSlider.value))
-        } else {
-            imageView.image = nil
-        }
+        setImage()
     }
     
 
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let filterSelectionVC = segue.destination as! FilterSelectionViewController
+        let centerImage = CGPoint(x: (filterSelectionVC.originalImage?.size.width)!/2, y: (filterSelectionVC.originalImage?.size.height)!/2)
+        let center = filter?.center != nil ? centerImage : nil
+        filterSelectionVC.originalImage = filter?.filterImage(filterSelectionVC.originalImage!, filterValue: CGFloat(scaleSlider.value), centerPoint: center, radius: CGFloat(radiusSlider.value), angle: NSNumber(value: angleSlider.value), intensity: NSNumber(value: intensitySlider.value))
     }
-    */
 
 }

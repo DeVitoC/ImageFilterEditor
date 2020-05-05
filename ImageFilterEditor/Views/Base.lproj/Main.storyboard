@@ -211,7 +211,7 @@
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="minus" catalog="system" maximumValueImage="plus" translatesAutoresizingMaskIntoConstraints="NO" id="ghv-mO-Ybi">
                                                 <rect key="frame" x="94" y="0.0" width="282" height="31"/>
                                                 <connections>
-                                                    <action selector="fourthChanged:" destination="uSb-FD-2Qx" eventType="valueChanged" id="lGB-CJ-y3u"/>
+                                                    <action selector="intensityChanged:" destination="uSb-FD-2Qx" eventType="valueChanged" id="lGB-CJ-y3u"/>
                                                     <action selector="scaleChanged:" destination="uSb-FD-2Qx" eventType="valueChanged" id="B08-Ck-1Yk"/>
                                                 </connections>
                                             </slider>
@@ -250,11 +250,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="b7s-aK-1wO"/>
                     <connections>
-                        <outlet property="AngleStackView" destination="jNx-DE-5OF" id="EBR-Hg-Yis"/>
                         <outlet property="angleSlider" destination="5Cq-oR-Gbn" id="gxM-s8-YGu"/>
-                        <outlet property="fourthSlider" destination="ghv-mO-Ybi" id="ghN-9d-1gB"/>
-                        <outlet property="fourthStackView" destination="x3q-fV-ucp" id="Rxb-tJ-VW8"/>
+                        <outlet property="angleStackView" destination="jNx-DE-5OF" id="EBR-Hg-Yis"/>
                         <outlet property="imageView" destination="s2Z-x0-lKC" id="xgX-i9-xph"/>
+                        <outlet property="intensitySlider" destination="ghv-mO-Ybi" id="ghN-9d-1gB"/>
+                        <outlet property="intensityStackView" destination="x3q-fV-ucp" id="Rxb-tJ-VW8"/>
                         <outlet property="radiusSlider" destination="F7M-Gf-stZ" id="4VV-IP-T42"/>
                         <outlet property="radiusStackView" destination="KOe-B0-Jaf" id="HEE-kI-jdk"/>
                         <outlet property="scaleSlider" destination="ASO-Ra-kEL" id="7p5-Mt-ah9"/>

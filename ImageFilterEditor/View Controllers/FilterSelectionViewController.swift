@@ -93,7 +93,8 @@ extension FilterSelectionViewController: UICollectionViewDataSource {
         let center = filter.center != nil ? centerImage : nil
         let radius = (filter.radius != nil) ? filter.radius : nil
         let angle = filter.angle
-        cell.image = filter.filterImage(scaledImage, filterValue: scale, centerPoint: center, radius: radius, angle: angle)
+        let intensity = filter.intensity
+        cell.image = filter.filterImage(scaledImage, filterValue: scale, centerPoint: center, radius: radius, angle: angle, intensity: intensity)
         return cell
     }
     
@@ -106,7 +107,8 @@ extension FilterSelectionViewController: UICollectionViewDataSource {
         let center = CGPoint(x: image.size.width/2, y: image.size.height/2)
         let radius = (filter.radius != nil) ? filter.radius : nil
         let angle = filter.angle
-        imageView.image = filter.filterImage(image, filterValue: scale, centerPoint: center, radius: radius, angle: angle)
+        let intensity = filter.intensity
+        imageView.image = filter.filterImage(image, filterValue: scale, centerPoint: center, radius: radius, angle: angle, intensity: intensity)
         filterCollectionView.cellForItem(at: indexPath)?.layer.borderWidth = 1
     }
     
