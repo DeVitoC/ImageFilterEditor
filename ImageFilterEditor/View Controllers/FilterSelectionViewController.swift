@@ -88,7 +88,12 @@ extension FilterSelectionViewController: UICollectionViewDataSource {
         guard let cell = filterCollectionView.dequeueReusableCell(withReuseIdentifier: "FilterCell", for: indexPath) as? FilterTypeCollectionViewCell, let scaledImage = scaledImage else { return UICollectionViewCell() }
         var filter = filters[indexPath.item]
         cell.filter = filter
-        cell.image = filter.filterImage(scaledImage, filterValue: 1, centerPoint: CGPoint(x: scaledImage.size.width/2, y: scaledImage.size.height/2), radius: scaledImage.size.height/4)
+        let scale = filter.scale
+        let centerImage = CGPoint(x: scaledImage.size.width/2, y: scaledImage.size.height/2)
+        let center = filter.center != nil ? centerImage : nil
+        let radius = (filter.radius != nil) ? filter.radius : nil
+        let angle = filter.angle
+        cell.image = filter.filterImage(scaledImage, filterValue: scale, centerPoint: center, radius: radius, angle: angle)
         return cell
     }
     
@@ -97,7 +102,11 @@ extension FilterSelectionViewController: UICollectionViewDataSource {
         let index = indexPath.item
         self.index = index
         var filter = filters[index]
-        imageView.image = filter.filterImage(image, filterValue: 1, centerPoint: CGPoint(x: image.size.width/2, y: image.size.height/2), radius: image.size.height/4)
+        let scale = filter.scale
+        let center = CGPoint(x: image.size.width/2, y: image.size.height/2)
+        let radius = (filter.radius != nil) ? filter.radius : nil
+        let angle = filter.angle
+        imageView.image = filter.filterImage(image, filterValue: scale, centerPoint: center, radius: radius, angle: angle)
         filterCollectionView.cellForItem(at: indexPath)?.layer.borderWidth = 1
     }
     

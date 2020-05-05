@@ -18,28 +18,37 @@ struct CustomFilter {
     var center: CGPoint?
     var radius: CGFloat?
     var scale: CGFloat?
+    var angle: NSNumber?
     
-    public mutating func filterImage(_ image: UIImage, filterValue: CGFloat? = nil, centerPoint: CGPoint = .zero, radius: CGFloat = 100) -> UIImage? {
+    public mutating func filterImage(_ image: UIImage, filterValue: CGFloat? = nil, centerPoint: CGPoint? = .zero, radius: CGFloat? = nil, angle: NSNumber? = nil) -> UIImage? {
         
         // UIImage -> CGImage -> CIImage
         guard let cgImage = image.cgImage else { return nil }
         let ciImage = CIImage(cgImage: cgImage)
-        if centerPoint == .zero {
-            center = CGPoint(x: image.size.width/2.0, y: image.size.height/2.0)
-        } else {
-            center = centerPoint
-        }
         
-        // setting values / getting values from Core Image
+        // Set input image
         filterType.setValue(ciImage, forKey: kCIInputImageKey) // "inputImage"
+        
+        // Set Scale if filter has scale
         if scale != nil {
             filterType.setValue(filterValue, forKey: kCIInputScaleKey)
         }
-        if let center = center {
-            filterType.setValue(CIVector(cgPoint: center), forKey: "inputCenter")
+        
+        // Set center
+        if center != nil {
+            filterType.setValue(CIVector(cgPoint: centerPoint!), forKey: "inputCenter")
         }
-        filterType.setValue(radius, forKey: "inputRadius")
-
+        
+        // Set Radius if filter has radius
+        if self.radius != nil {
+            filterType.setValue(radius, forKey: "inputRadius")
+        }
+        
+        // Set Angle if filter has angle
+        if self.angle != nil {
+            filterType.setValue(angle, forKey: "inputAngle")
+        }
+        
         // Return = CIImage -> CGImage -> UIImage
         guard let outputCIImage = filterType.outputImage else { return nil }
         
