@@ -318,7 +318,73 @@
                     <view key="view" contentMode="scaleToFill" id="ZaV-9o-Owu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select an Audio Comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AYu-MF-YHs">
+                                <rect key="frame" x="20" y="88" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XaM-LT-eiW">
+                                <rect key="frame" x="0.0" y="108.5" width="414" height="403"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fmf-Rd-xHN">
+                                <rect key="frame" x="-12" y="706" width="234" height="88"/>
+                                <subviews>
+                                    <slider opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ygd-5x-AJ5">
+                                        <rect key="frame" x="48" y="0.0" width="138" height="31"/>
+                                    </slider>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="bmU-wa-686">
+                                        <rect key="frame" x="0.0" y="38" width="234" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4jH-dF-7GA">
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="U06-Mk-NGe"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <state key="normal" image="mic.circle.fill" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
+                                                </state>
+                                                <state key="selected" image="stop.circle" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oV7-kr-zeo">
+                                                <rect key="frame" x="87" y="0.0" width="60" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="Zn2-wc-Bpx"/>
+                                                </constraints>
+                                                <state key="normal" image="xmark.circle.fill" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cfl-xo-zD1">
+                                                <rect key="frame" x="174" y="0.0" width="60" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="Th3-Zd-0h5"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                                <state key="normal" title="Save">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="XaM-LT-eiW" firstAttribute="leading" secondItem="6YL-Do-jGs" secondAttribute="leading" id="0HL-IX-87k"/>
+                            <constraint firstItem="AYu-MF-YHs" firstAttribute="top" secondItem="6YL-Do-jGs" secondAttribute="top" id="CKt-Ze-8My"/>
+                            <constraint firstItem="XaM-LT-eiW" firstAttribute="top" secondItem="AYu-MF-YHs" secondAttribute="bottom" id="I62-Tz-Vc6"/>
+                            <constraint firstItem="6YL-Do-jGs" firstAttribute="trailing" secondItem="AYu-MF-YHs" secondAttribute="trailing" constant="20" id="LIx-yR-j98"/>
+                            <constraint firstItem="XaM-LT-eiW" firstAttribute="height" secondItem="ZaV-9o-Owu" secondAttribute="height" multiplier="0.45" id="Td4-A2-BYc"/>
+                            <constraint firstItem="6YL-Do-jGs" firstAttribute="trailing" secondItem="XaM-LT-eiW" secondAttribute="trailing" id="a89-3K-7NH"/>
+                            <constraint firstItem="AYu-MF-YHs" firstAttribute="leading" secondItem="6YL-Do-jGs" secondAttribute="leading" constant="20" id="b6l-NT-rf4"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6YL-Do-jGs"/>
                     </view>
                     <navigationItem key="navigationItem" id="Iuh-Vz-xkK"/>
@@ -348,8 +414,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="mic.circle.fill" catalog="system" width="128" height="121"/>
         <image name="minus" catalog="system" width="128" height="24"/>
         <image name="photo" catalog="system" width="128" height="93"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="stop.circle" catalog="system" width="128" height="121"/>
+        <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>
