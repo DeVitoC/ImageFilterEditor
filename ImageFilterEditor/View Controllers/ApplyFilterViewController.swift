@@ -27,8 +27,12 @@ class ApplyFilterViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        updateViews()
+    }
+    
+    func updateViews() {
+        guard let image = image else { return }
+        imageView.image = image
     }
     
 
