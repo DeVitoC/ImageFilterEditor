@@ -22,7 +22,7 @@
                                     <constraint firstAttribute="width" secondItem="sxp-km-vFn" secondAttribute="height" multiplier="1:1" id="DUP-tg-mWx"/>
                                 </constraints>
                             </imageView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="86w-h5-XRw">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="86w-h5-XRw">
                                 <rect key="frame" x="10" y="502" width="394" height="200"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>

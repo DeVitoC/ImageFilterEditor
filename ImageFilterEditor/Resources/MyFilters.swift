@@ -20,5 +20,3 @@ let circularWrapDistortion: CustomFilter = CustomFilter(filterType: CIFilter(nam
 let bloom: CustomFilter = CustomFilter(filterType: CIFilter(name: "CIBloom")!, name: "Bloom", center: nil, radius: 200, scale: nil, angle: nil, intensity: 0.5)
 
 let straightenFilter: CustomFilter = CustomFilter(filterType: CIFilter(name: "CIStraightenFilter")!, name: "Straighten", center: nil, radius: nil, scale: nil, angle: 0.00, intensity: nil)
-
-

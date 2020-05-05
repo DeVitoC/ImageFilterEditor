@@ -110,7 +110,6 @@ class ApplyFilterViewController: UIViewController {
         setImage()
     }
     
-
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let filterSelectionVC = segue.destination as! FilterSelectionViewController
@@ -118,5 +117,4 @@ class ApplyFilterViewController: UIViewController {
         let center = filter?.center != nil ? centerImage : nil
         filterSelectionVC.originalImage = filter?.filterImage(filterSelectionVC.originalImage!, filterValue: CGFloat(scaleSlider.value), centerPoint: center, radius: CGFloat(radiusSlider.value), angle: NSNumber(value: angleSlider.value), intensity: NSNumber(value: intensitySlider.value))
     }
-
 }
