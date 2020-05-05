@@ -46,6 +46,7 @@ class ApplyFilterViewController: UIViewController {
     }
     
     func setViews() {
+        title = filter?.name
         setRadius()
         setScale()
         setAngle()
