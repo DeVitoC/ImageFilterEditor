@@ -9,7 +9,14 @@
 import Foundation
 import AVFoundation
 
-struct AudioComment {
+struct AudioComment: Codable {
     var author: String
     var recording: URL
+    var identifier: String
+    
+    init(author: String, recording: URL, identifier: String = UUID().uuidString) {
+        self.author = author
+        self.recording = recording
+        self.identifier = identifier
+    }
 }
