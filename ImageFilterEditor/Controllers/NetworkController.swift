@@ -14,11 +14,19 @@ class NetworkController {
     
     func createAudioComment(by author: String, storedAt url: URL, completion: @escaping () -> Void) {
         
-        let comment = AudioComment(author: author, recording: url)
-        
+        let data: Data
+        do {
+            data = try Data(contentsOf: url)
+        } catch {
+            print("Error converting audio file to data: \(error)")
+            completion()
+            return
+        }
+        let comment = AudioComment(author: author, recording: url, audio: data)
         audioComments.append(comment)
         
-        let requestURL = baseURL.appendingPathComponent(comment.identifier).appendingPathExtension("json")
+        //let requestURL = baseURL.appendingPathComponent(comment.identifier).appendingPathExtension("json")
+        let requestURL = baseURL.appendingPathExtension("json")
         
         var request = URLRequest(url: requestURL)
         
@@ -33,9 +41,39 @@ class NetworkController {
         URLSession.shared.dataTask(with: request) { (data, _, error) in
             
             if let error = error {
-                NSLog("Error with message thread creation data task: \(error)")
+                NSLog("Error with audio comment creation data task: \(error)")
                 completion()
                 return
+            }
+            
+            completion()
+        }.resume()
+    }
+    
+    func fetchAudioComments(completion: @escaping () -> Void) {
+        
+        let requestURL = baseURL.appendingPathExtension("json")
+        
+        URLSession.shared.dataTask(with: requestURL) { (data, _, error) in
+            
+            if let error = error {
+                NSLog("Error fetching audio comments: \(error)")
+                completion()
+                return
+            }
+            
+            guard let data = data else {
+                NSLog("No data returned from data task")
+                completion()
+                return
+            }
+            
+            do {
+                let fetchedComments = try JSONDecoder().decode([String : AudioComment].self, from: data)
+                self.audioComments = Array(fetchedComments.values)
+            } catch {
+                self.audioComments = []
+                NSLog("Error decoding audio comments from JSON data: \(error)")
             }
             
             completion()

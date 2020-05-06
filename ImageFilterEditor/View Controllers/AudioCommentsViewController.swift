@@ -48,12 +48,39 @@ class AudioCommentsViewController: UIViewController {
         super.viewDidLoad()
         recordingTimeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: recordingTimeLabel.font.pointSize,
                                                           weight: .regular)
-        updateViews()
         
+        audioCommentsTableView.delegate = self
+        audioCommentsTableView.dataSource = self
+        updateViews()
+        //audioCommentsTableView.reloadData()
+        
+//        do {
+//            try prepareAudioSession()
+//        } catch {
+//            print("Error preparing audio session: \(error)")
+//        }
+//
+//        networkController.fetchAudioComments {
+//            DispatchQueue.main.async {
+//                self.audioComments = self.networkController.audioComments
+//                self.audioCommentsTableView.reloadData()
+//            }
+//        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         do {
             try prepareAudioSession()
         } catch {
             print("Error preparing audio session: \(error)")
+        }
+        
+        networkController.fetchAudioComments {
+            DispatchQueue.main.async {
+                self.audioComments = self.networkController.audioComments
+                self.audioCommentsTableView.reloadData()
+                
+            }
         }
     }
     
@@ -74,6 +101,7 @@ class AudioCommentsViewController: UIViewController {
         recordingSlider.minimumValue = 0
         recordingSlider.maximumValue = Float(30)
         recordingSlider.value = Float(currentTime)
+        audioCommentsTableView.reloadData()
     }
     
     deinit {
@@ -182,7 +210,6 @@ extension AudioCommentsViewController: AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag,
             let recordingUrl = recordingURL {
-            let newAudioComment = AudioComment(author: "Me", recording: recordingUrl)
             networkController.createAudioComment(by: "Me", storedAt: recordingUrl) {
                 DispatchQueue.main.async {
                     self.audioCommentsTableView.reloadData()
