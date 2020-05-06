@@ -40,6 +40,7 @@
 		E291B20C2462676A0089BCAB /* AudioComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B20B2462676A0089BCAB /* AudioComment.swift */; };
 		E291B20E24626B570089BCAB /* audioHelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B20D24626B570089BCAB /* audioHelperMethods.swift */; };
 		E291B2102462955F0089BCAB /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B20F2462955F0089BCAB /* NetworkController.swift */; };
+		E291B2122462978E0089BCAB /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B2112462978E0089BCAB /* HTTPMethod.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,7 @@
 		E291B20B2462676A0089BCAB /* AudioComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioComment.swift; sourceTree = "<group>"; };
 		E291B20D24626B570089BCAB /* audioHelperMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = audioHelperMethods.swift; sourceTree = "<group>"; };
 		E291B20F2462955F0089BCAB /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		E291B2112462978E0089BCAB /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 				E21C38E32460B5720095F7B4 /* UIImage+Scaling.swift */,
 				E21C38E52460BC240095F7B4 /* MyFilters.swift */,
 				E291B20D24626B570089BCAB /* audioHelperMethods.swift */,
+				E291B2112462978E0089BCAB /* HTTPMethod.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				E291B208246261000089BCAB /* AudioCommentsViewController.swift in Sources */,
 				E21C38C12460AEBB0095F7B4 /* AppDelegate.swift in Sources */,
 				E21C38E22460B5430095F7B4 /* FilterController.swift in Sources */,
+				E291B2122462978E0089BCAB /* HTTPMethod.swift in Sources */,
 				E21C38C32460AEBB0095F7B4 /* SceneDelegate.swift in Sources */,
 				E21C38D92460B36C0095F7B4 /* FilterSelectionViewController.swift in Sources */,
 				E21C38E82460D1470095F7B4 /* ApplyFilterViewController.swift in Sources */,
