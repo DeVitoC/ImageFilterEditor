@@ -48,19 +48,24 @@ class AudioCommentsViewController: UIViewController {
         recordingTimeLabel.font = UIFont.monospacedDigitSystemFont(ofSize: recordingTimeLabel.font.pointSize,
                                                           weight: .regular)
         updateViews()
-        // TODO: do/try/catch error handling
-        try? prepareAudioSession()
+        
+        do {
+            try prepareAudioSession()
+        } catch {
+            print("Error preparing audio session: \(error)")
+        }
     }
     
-    private func updateViews() {
+    private func updateViews(stop: Bool = false) {
         recordButton.isSelected = isRecording
         
         let currentTime = recordingTime
-        if currentTime > 29.99 {
+        if currentTime > 29.99 || stop {
             stopRecording()
             recordingTimeLabel.text = "00:00"
             recordingSlider.value = 0
             cancelTimer()
+            recordingTime = 0.00
             return
         }
         recordingTimeLabel.text = timeIntervalFormatter.string(from: currentTime) ?? "00:00"
@@ -143,21 +148,24 @@ class AudioCommentsViewController: UIViewController {
     func startRecording() {
         let recordingURL = createNewRecordingURL()
         
-        let format = AVAudioFormat(standardFormatWithSampleRate: 44_100, channels: 1)!
-        audioRecorder = try? AVAudioRecorder(url: recordingURL, format: format)
+        //let format = AVAudioFormat(standardFormatWithSampleRate: 44_100, channels: 1)!
+        guard let format = AVAudioFormat(commonFormat: .pcmFormatFloat32, sampleRate: 48_000, channels: 1, interleaved: false) else { return }
+        do {
+            audioRecorder = try AVAudioRecorder(url: recordingURL, format: format)
+        } catch {
+            print("Error creating audioRecorder: \(error)")
+        }
         // TODO: Error handling do/catch
         audioRecorder?.delegate = self
         audioRecorder?.isMeteringEnabled = true
         audioRecorder?.record()
         self.recordingURL = recordingURL
         updateViews()
-        
         startTimer()
     }
     
     func stopRecording() {
         audioRecorder?.stop()
-        updateViews()
         cancelTimer()
     }
 }
@@ -173,9 +181,11 @@ extension AudioCommentsViewController: AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag,
             let recordingUrl = recordingURL {
-            audioPlayer = try? AVAudioPlayer(contentsOf: recordingUrl)
+            let newAudioComment = AudioComment(author: "Me", recording: recordingUrl)
+            audioComments?.append(newAudioComment)
+            audioCommentsTableView.reloadData()
         }
-        updateViews()
+        updateViews(stop: true)
     }
 }
 
