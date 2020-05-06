@@ -20,6 +20,7 @@ class AudioCommentsViewController: UIViewController {
         audioRecorder?.isRecording ?? false
     }
     var audioPlayer: AVAudioPlayer?
+    var recordingTime: Double = 0.00
     
     // MARK: - IBOutlets
     @IBOutlet weak var audioCommentsTableView: UITableView!
@@ -54,12 +55,19 @@ class AudioCommentsViewController: UIViewController {
     private func updateViews() {
         recordButton.isSelected = isRecording
         
-        //let currentTime = audioPlayer?.currentTime ?? 0.0
-        //timeElapsedLabel.text = timeIntervalFormatter.string(from: currentTime) ?? "00:00"
+        let currentTime = recordingTime
+        if currentTime > 29.99 {
+            stopRecording()
+            recordingTimeLabel.text = "00:00"
+            recordingSlider.value = 0
+            cancelTimer()
+            return
+        }
+        recordingTimeLabel.text = timeIntervalFormatter.string(from: currentTime) ?? "00:00"
         
         recordingSlider.minimumValue = 0
         recordingSlider.maximumValue = Float(30)
-        //recordingSlider.value = Float(currentTime)
+        recordingSlider.value = Float(currentTime)
     }
     
     deinit {
@@ -122,7 +130,7 @@ class AudioCommentsViewController: UIViewController {
         
         timer = Timer.scheduledTimer(withTimeInterval: 0.030, repeats: true) { [weak self] (_) in
             guard let self = self else { return }
-            
+            self.recordingTime += 0.030
             self.updateViews()
         }
     }
