@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "container:">
+   </FileRef>
+   <FileRef
+      location = "group:../Carthage/Build/iOS/FIRAnalyticsConnector.framework">
+   </FileRef>
+   <FileRef
+      location = "group:../Carthage/Build/iOS/Firebase.framework">
+   </FileRef>
+   <FileRef
+      location = "group:../Carthage/Build/iOS/FirebaseAnalytics.framework">
+   </FileRef>
+   <FileRef
+      location = "group:../Carthage/Build/iOS/FirebaseAuth.framework">
+   </FileRef>
+   <FileRef
+      location = "group:../Carthage/Build/iOS/FirebaseCore.framework">
+   </FileRef>
+   <FileRef
+      location = "group:../Carthage/Build/iOS/FirebaseCoreDiagnostics.framework">
+   </FileRef>
+   <FileRef
+      location = "group:../Carthage/Build/iOS/FirebaseDatabase.framework">
+   </FileRef>
+   <FileRef
+      location = "group:../Carthage/Build/iOS/FirebaseInstallations.framework">
+   </FileRef>
+   <FileRef
+      location = "group:../Carthage/Build/iOS/GoogleAppMeasurement.framework">
+   </FileRef>
+   <FileRef
+      location = "group:../Carthage/Build/iOS/GoogleDataTransport.framework">
+   </FileRef>
+   <FileRef
+      location = "group:../Carthage/Build/iOS/GoogleDataTransportCCTSupport.framework">
+   </FileRef>
+   <FileRef
+      location = "group:../Carthage/Build/iOS/GoogleUtilities.framework">
+   </FileRef>
+   <FileRef
+      location = "group:../Carthage/Build/iOS/GTMSessionFetcher.framework">
+   </FileRef>
+   <FileRef
+      location = "group:../Carthage/Build/iOS/leveldb-library.framework">
+   </FileRef>
+   <FileRef
+      location = "group:../Carthage/Build/iOS/nanopb.framework">
+   </FileRef>
+   <FileRef
+      location = "group:../Carthage/Build/iOS/PromisesObjC.framework">
+   </FileRef>
+</Workspace>
