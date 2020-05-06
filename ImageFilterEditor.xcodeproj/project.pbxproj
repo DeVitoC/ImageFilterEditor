@@ -46,6 +46,7 @@
 		E291B21A2463553C0089BCAB /* DetailVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B2192463553C0089BCAB /* DetailVideoViewController.swift */; };
 		E291B21E246355610089BCAB /* VideoPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B21D246355610089BCAB /* VideoPost.swift */; };
 		E291B220246355D20089BCAB /* VideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B21F246355D20089BCAB /* VideoCollectionViewCell.swift */; };
+		E291B222246367A10089BCAB /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B221246367A10089BCAB /* VideoPlayerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,7 @@
 		E291B2192463553C0089BCAB /* DetailVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVideoViewController.swift; sourceTree = "<group>"; };
 		E291B21D246355610089BCAB /* VideoPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPost.swift; sourceTree = "<group>"; };
 		E291B21F246355D20089BCAB /* VideoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCollectionViewCell.swift; sourceTree = "<group>"; };
+		E291B221246367A10089BCAB /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +211,7 @@
 				E21C38DA2460B3870095F7B4 /* FilterTypeCollectionViewCell.swift */,
 				E291B209246261210089BCAB /* AudioCommentTableViewCell.swift */,
 				E291B21F246355D20089BCAB /* VideoCollectionViewCell.swift */,
+				E291B221246367A10089BCAB /* VideoPlayerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				E291B2162463550E0089BCAB /* VideosViewController.swift in Sources */,
 				E291B220246355D20089BCAB /* VideoCollectionViewCell.swift in Sources */,
 				E21C38E42460B5720095F7B4 /* UIImage+Scaling.swift in Sources */,
+				E291B222246367A10089BCAB /* VideoPlayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

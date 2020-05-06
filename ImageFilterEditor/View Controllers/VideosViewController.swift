@@ -18,26 +18,40 @@ class VideosViewController: UIViewController {
     
     // MARK: - IBActions
     @IBAction func createVideoTapped(_ sender: Any) {
+        performSegue(withIdentifier: "AddVideoSegue", sender: self)
     }
     
 
     // MARK: - View Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        videosCollectionView.dataSource = self
+        videosCollectionView.delegate = self
     }
     
     func updateViews() {
         
     }
 
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
     }
-    */
 
+}
+
+extension VideosViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        videos.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = videosCollectionView.dequeueReusableCell(withReuseIdentifier: "VideoCell", for: indexPath) as? VideoCollectionViewCell else { return UICollectionViewCell() }
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "VideoDetailSegue", sender: self)
+    }
 }
