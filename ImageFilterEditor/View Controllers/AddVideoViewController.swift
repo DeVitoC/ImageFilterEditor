@@ -27,17 +27,22 @@ class AddVideoViewController: UIViewController {
         toggleRecord()
     }
     @IBAction func saveButtonTapped(_ sender: Any) {
+        let 
     }
     @IBAction func cancelButtonTapped(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
     // MARK: - View Methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // MARK: - Commented out to side step video capture.
         //videoPreviewView.videoPlayerView.videoGravity = .resizeAspectFill
         //setUpCaptureSession()
         view.addSubview(playerView)
+        
+        // MARK: - Hardcoded playMovie call with stock video to test playback
         playMovie(url: Bundle.main.url(forResource: "357421238", withExtension: "mp4")!)
     }
     
