@@ -38,6 +38,7 @@
 		E291B208246261000089BCAB /* AudioCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B207246261000089BCAB /* AudioCommentsViewController.swift */; };
 		E291B20A246261210089BCAB /* AudioCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B209246261210089BCAB /* AudioCommentTableViewCell.swift */; };
 		E291B20C2462676A0089BCAB /* AudioComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B20B2462676A0089BCAB /* AudioComment.swift */; };
+		E291B20E24626B570089BCAB /* audioHelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B20D24626B570089BCAB /* audioHelperMethods.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,7 @@
 		E291B207246261000089BCAB /* AudioCommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCommentsViewController.swift; sourceTree = "<group>"; };
 		E291B209246261210089BCAB /* AudioCommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCommentTableViewCell.swift; sourceTree = "<group>"; };
 		E291B20B2462676A0089BCAB /* AudioComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioComment.swift; sourceTree = "<group>"; };
+		E291B20D24626B570089BCAB /* audioHelperMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = audioHelperMethods.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 				E21C38CE2460AEBE0095F7B4 /* Info.plist */,
 				E21C38E32460B5720095F7B4 /* UIImage+Scaling.swift */,
 				E21C38E52460BC240095F7B4 /* MyFilters.swift */,
+				E291B20D24626B570089BCAB /* audioHelperMethods.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				E21C38E62460BC240095F7B4 /* MyFilters.swift in Sources */,
 				E21C38E02460B5330095F7B4 /* CustomFilter.swift in Sources */,
 				E291B20A246261210089BCAB /* AudioCommentTableViewCell.swift in Sources */,
+				E291B20E24626B570089BCAB /* audioHelperMethods.swift in Sources */,
 				E291B208246261000089BCAB /* AudioCommentsViewController.swift in Sources */,
 				E21C38C12460AEBB0095F7B4 /* AppDelegate.swift in Sources */,
 				E21C38E22460B5430095F7B4 /* FilterController.swift in Sources */,
