@@ -306,11 +306,28 @@
                     <connections>
                         <segue destination="b9D-k3-M2Z" kind="relationship" relationship="viewControllers" id="FQs-A0-L1l"/>
                         <segue destination="Y0w-hx-kjz" kind="relationship" relationship="viewControllers" id="Lga-7b-eAp"/>
+                        <segue destination="on4-Le-K5V" kind="relationship" relationship="viewControllers" id="rnr-6x-2O6"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uVq-Hr-mbs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="137.94642857142856"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="N9a-mH-aIG">
+            <objects>
+                <viewController id="lYG-p5-90b" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Eg1-3T-yBo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="qlW-dz-zxn"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="nca-Gb-lkr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uOq-5E-cjy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1909" y="477"/>
         </scene>
         <!--Audio Comments-->
         <scene sceneID="j8V-xX-JTw">
@@ -533,6 +550,25 @@
             </objects>
             <point key="canvasLocation" x="1161" y="-246"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="7Uu-Ic-PPN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="on4-Le-K5V" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="video" catalog="system" id="qUF-Ef-QgO"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WcJ-ms-Wnb">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="lYG-p5-90b" kind="relationship" relationship="rootViewController" id="83p-HL-0Mg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zsq-ib-8JO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1161" y="477"/>
+        </scene>
     </scenes>
     <resources>
         <image name="mic.circle.fill" catalog="system" width="128" height="121"/>
@@ -543,6 +579,7 @@
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="recordingtape" catalog="system" width="128" height="60"/>
         <image name="stop.circle" catalog="system" width="128" height="121"/>
+        <image name="video" catalog="system" width="128" height="83"/>
         <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>
