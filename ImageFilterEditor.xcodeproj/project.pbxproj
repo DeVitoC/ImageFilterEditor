@@ -35,6 +35,8 @@
 		E291B20324623E000089BCAB /* FirebaseAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E291B1F324623E000089BCAB /* FirebaseAuth.framework */; };
 		E291B20424623E000089BCAB /* leveldb-library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E291B1F424623E000089BCAB /* leveldb-library.framework */; };
 		E291B20524623E000089BCAB /* FirebaseInstallations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E291B1F524623E000089BCAB /* FirebaseInstallations.framework */; };
+		E291B208246261000089BCAB /* AudioCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B207246261000089BCAB /* AudioCommentsViewController.swift */; };
+		E291B20A246261210089BCAB /* AudioCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B209246261210089BCAB /* AudioCommentTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +71,8 @@
 		E291B1F324623E000089BCAB /* FirebaseAuth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAuth.framework; path = Carthage/Build/iOS/FirebaseAuth.framework; sourceTree = "<group>"; };
 		E291B1F424623E000089BCAB /* leveldb-library.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "leveldb-library.framework"; path = "Carthage/Build/iOS/leveldb-library.framework"; sourceTree = "<group>"; };
 		E291B1F524623E000089BCAB /* FirebaseInstallations.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstallations.framework; path = Carthage/Build/iOS/FirebaseInstallations.framework; sourceTree = "<group>"; };
+		E291B207246261000089BCAB /* AudioCommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCommentsViewController.swift; sourceTree = "<group>"; };
+		E291B209246261210089BCAB /* AudioCommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCommentTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,7 @@
 		E21C38B42460AEBB0095F7B4 = {
 			isa = PBXGroup;
 			children = (
+				E21C38BF2460AEBB0095F7B4 /* ImageFilterEditor */,
 				E291B1E824623DFF0089BCAB /* FIRAnalyticsConnector.framework */,
 				E291B1F224623E000089BCAB /* Firebase.framework */,
 				E291B1EF24623DFF0089BCAB /* FirebaseAnalytics.framework */,
@@ -116,7 +121,6 @@
 				E291B1F424623E000089BCAB /* leveldb-library.framework */,
 				E291B1EE24623DFF0089BCAB /* nanopb.framework */,
 				E291B1ED24623DFF0089BCAB /* PromisesObjC.framework */,
-				E21C38BF2460AEBB0095F7B4 /* ImageFilterEditor */,
 				E21C38BE2460AEBB0095F7B4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -169,6 +173,7 @@
 			children = (
 				E21C38D82460B36C0095F7B4 /* FilterSelectionViewController.swift */,
 				E21C38E72460D1470095F7B4 /* ApplyFilterViewController.swift */,
+				E291B207246261000089BCAB /* AudioCommentsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -178,6 +183,7 @@
 			children = (
 				E21C38C62460AEBB0095F7B4 /* Main.storyboard */,
 				E21C38DA2460B3870095F7B4 /* FilterTypeCollectionViewCell.swift */,
+				E291B209246261210089BCAB /* AudioCommentTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -265,6 +271,8 @@
 				E21C38DB2460B3870095F7B4 /* FilterTypeCollectionViewCell.swift in Sources */,
 				E21C38E62460BC240095F7B4 /* MyFilters.swift in Sources */,
 				E21C38E02460B5330095F7B4 /* CustomFilter.swift in Sources */,
+				E291B20A246261210089BCAB /* AudioCommentTableViewCell.swift in Sources */,
+				E291B208246261000089BCAB /* AudioCommentsViewController.swift in Sources */,
 				E21C38C12460AEBB0095F7B4 /* AppDelegate.swift in Sources */,
 				E21C38E22460B5430095F7B4 /* FilterController.swift in Sources */,
 				E21C38C32460AEBB0095F7B4 /* SceneDelegate.swift in Sources */,

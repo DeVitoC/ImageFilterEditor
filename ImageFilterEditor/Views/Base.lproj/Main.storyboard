@@ -312,10 +312,10 @@
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="137.94642857142856"/>
         </scene>
-        <!--View Controller-->
+        <!--Audio Comments-->
         <scene sceneID="j8V-xX-JTw">
             <objects>
-                <viewController id="ShS-Lo-CDs" sceneMemberID="viewController">
+                <viewController id="ShS-Lo-CDs" customClass="AudioCommentsViewController" customModule="ImageFilterEditor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZaV-9o-Owu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -330,7 +330,7 @@
                                 <rect key="frame" x="0.0" y="108.5" width="414" height="403"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RecordingCell" rowHeight="159" id="TCr-i1-YKu">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RecordingCell" rowHeight="159" id="TCr-i1-YKu" customClass="AudioCommentTableViewCell" customModule="ImageFilterEditor" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="159"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TCr-i1-YKu" id="h95-xu-7hw">
@@ -362,6 +362,9 @@
                                                                     <state key="selected" image="pause.circle.fill" catalog="system">
                                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="large" weight="bold"/>
                                                                     </state>
+                                                                    <connections>
+                                                                        <action selector="playButtonTapped:" destination="TCr-i1-YKu" eventType="touchUpInside" id="2o6-S0-dSW"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                         </stackView>
@@ -376,6 +379,9 @@
                                                                 </label>
                                                                 <slider opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="rIs-ai-itg">
                                                                     <rect key="frame" x="50.5" y="0.0" width="273" height="100"/>
+                                                                    <connections>
+                                                                        <action selector="playbackSliderDragged:" destination="TCr-i1-YKu" eventType="valueChanged" id="IM9-mD-cf7"/>
+                                                                    </connections>
                                                                 </slider>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="-00.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uma-q7-nty">
                                                                     <rect key="frame" x="321.5" y="0.0" width="52.5" height="99"/>
@@ -398,6 +404,14 @@
                                                 <constraint firstItem="o4T-40-S7C" firstAttribute="leading" secondItem="h95-xu-7hw" secondAttribute="leading" constant="20" id="sbg-gK-DBv"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="authorLabel" destination="XOj-jL-O9M" id="vdX-MZ-MIL"/>
+                                            <outlet property="currentTimeLabel" destination="Lik-jB-61K" id="Zco-Uw-Zzl"/>
+                                            <outlet property="playButton" destination="IDF-GD-ZvX" id="IMD-sC-w02"/>
+                                            <outlet property="playbackSlider" destination="rIs-ai-itg" id="gcv-sR-3xL"/>
+                                            <outlet property="playbackSliderStackView" destination="Haa-BW-dpz" id="cdf-nB-TJY"/>
+                                            <outlet property="timeRemainingLabel" destination="uma-q7-nty" id="d5w-Eq-i2p"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -418,6 +432,9 @@
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ygd-5x-AJ5">
                                                 <rect key="frame" x="68" y="0.0" width="308" height="51"/>
+                                                <connections>
+                                                    <action selector="recordingSliderDragged:" destination="ShS-Lo-CDs" eventType="valueChanged" id="upk-ls-3l7"/>
+                                                </connections>
                                             </slider>
                                         </subviews>
                                     </stackView>
@@ -436,6 +453,9 @@
                                                 <state key="selected" image="stop.circle" catalog="system">
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="large" weight="bold"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="playButtonTapped:" destination="ShS-Lo-CDs" eventType="touchUpInside" id="lFM-8p-oRm"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oV7-kr-zeo">
                                                 <rect key="frame" x="133.5" y="0.0" width="107" height="50"/>
@@ -448,6 +468,9 @@
                                                 <state key="selected">
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="17"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="cancelButtonTapped:" destination="ShS-Lo-CDs" eventType="touchUpInside" id="Dng-Uq-YKu"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cfl-xo-zD1">
                                                 <rect key="frame" x="267.5" y="0.0" width="106.5" height="50"/>
@@ -458,6 +481,9 @@
                                                 <state key="normal" title="Save">
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="saveButtonTapped:" destination="ShS-Lo-CDs" eventType="touchUpInside" id="Hb3-13-ZWh"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -479,7 +505,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6YL-Do-jGs"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Iuh-Vz-xkK"/>
+                    <navigationItem key="navigationItem" title="Audio Comments" id="Iuh-Vz-xkK"/>
+                    <connections>
+                        <outlet property="audioCommentsTableView" destination="XaM-LT-eiW" id="RCI-Yn-EJe"/>
+                        <outlet property="playButton" destination="4jH-dF-7GA" id="Fnz-m5-EF3"/>
+                        <outlet property="recordingSlider" destination="Ygd-5x-AJ5" id="6ow-hK-Qzj"/>
+                        <outlet property="recordingTimeLabel" destination="Jy6-Mt-XNU" id="30e-2F-A6x"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vsa-FP-mWz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -489,7 +521,7 @@
         <scene sceneID="L3C-gh-YMx">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Y0w-hx-kjz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Audio Comment" id="nUm-iU-dxk"/>
+                    <tabBarItem key="tabBarItem" title="Audio Comment" image="recordingtape" catalog="system" id="nUm-iU-dxk"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AzA-dM-qGz">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -512,6 +544,7 @@
         <image name="photo" catalog="system" width="128" height="93"/>
         <image name="play.circle.fill" catalog="system" width="128" height="121"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="recordingtape" catalog="system" width="128" height="60"/>
         <image name="stop.circle" catalog="system" width="128" height="121"/>
         <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
     </resources>
