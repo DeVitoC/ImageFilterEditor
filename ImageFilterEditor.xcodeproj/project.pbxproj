@@ -41,6 +41,11 @@
 		E291B20E24626B570089BCAB /* audioHelperMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B20D24626B570089BCAB /* audioHelperMethods.swift */; };
 		E291B2102462955F0089BCAB /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B20F2462955F0089BCAB /* NetworkController.swift */; };
 		E291B2122462978E0089BCAB /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B2112462978E0089BCAB /* HTTPMethod.swift */; };
+		E291B2162463550E0089BCAB /* VideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B2152463550E0089BCAB /* VideosViewController.swift */; };
+		E291B2182463552A0089BCAB /* AddVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B2172463552A0089BCAB /* AddVideoViewController.swift */; };
+		E291B21A2463553C0089BCAB /* DetailVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B2192463553C0089BCAB /* DetailVideoViewController.swift */; };
+		E291B21E246355610089BCAB /* VideoPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B21D246355610089BCAB /* VideoPost.swift */; };
+		E291B220246355D20089BCAB /* VideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B21F246355D20089BCAB /* VideoCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +86,11 @@
 		E291B20D24626B570089BCAB /* audioHelperMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = audioHelperMethods.swift; sourceTree = "<group>"; };
 		E291B20F2462955F0089BCAB /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		E291B2112462978E0089BCAB /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		E291B2152463550E0089BCAB /* VideosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosViewController.swift; sourceTree = "<group>"; };
+		E291B2172463552A0089BCAB /* AddVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVideoViewController.swift; sourceTree = "<group>"; };
+		E291B2192463553C0089BCAB /* DetailVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVideoViewController.swift; sourceTree = "<group>"; };
+		E291B21D246355610089BCAB /* VideoPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPost.swift; sourceTree = "<group>"; };
+		E291B21F246355D20089BCAB /* VideoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +195,9 @@
 				E21C38D82460B36C0095F7B4 /* FilterSelectionViewController.swift */,
 				E21C38E72460D1470095F7B4 /* ApplyFilterViewController.swift */,
 				E291B207246261000089BCAB /* AudioCommentsViewController.swift */,
+				E291B2152463550E0089BCAB /* VideosViewController.swift */,
+				E291B2172463552A0089BCAB /* AddVideoViewController.swift */,
+				E291B2192463553C0089BCAB /* DetailVideoViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -195,6 +208,7 @@
 				E21C38C62460AEBB0095F7B4 /* Main.storyboard */,
 				E21C38DA2460B3870095F7B4 /* FilterTypeCollectionViewCell.swift */,
 				E291B209246261210089BCAB /* AudioCommentTableViewCell.swift */,
+				E291B21F246355D20089BCAB /* VideoCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -204,6 +218,7 @@
 			children = (
 				E21C38DF2460B5330095F7B4 /* CustomFilter.swift */,
 				E291B20B2462676A0089BCAB /* AudioComment.swift */,
+				E291B21D246355610089BCAB /* VideoPost.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -280,6 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E291B2182463552A0089BCAB /* AddVideoViewController.swift in Sources */,
 				E21C38DB2460B3870095F7B4 /* FilterTypeCollectionViewCell.swift in Sources */,
 				E21C38E62460BC240095F7B4 /* MyFilters.swift in Sources */,
 				E21C38E02460B5330095F7B4 /* CustomFilter.swift in Sources */,
@@ -289,11 +305,15 @@
 				E21C38C12460AEBB0095F7B4 /* AppDelegate.swift in Sources */,
 				E21C38E22460B5430095F7B4 /* FilterController.swift in Sources */,
 				E291B2122462978E0089BCAB /* HTTPMethod.swift in Sources */,
+				E291B21E246355610089BCAB /* VideoPost.swift in Sources */,
 				E21C38C32460AEBB0095F7B4 /* SceneDelegate.swift in Sources */,
 				E21C38D92460B36C0095F7B4 /* FilterSelectionViewController.swift in Sources */,
 				E21C38E82460D1470095F7B4 /* ApplyFilterViewController.swift in Sources */,
 				E291B20C2462676A0089BCAB /* AudioComment.swift in Sources */,
 				E291B2102462955F0089BCAB /* NetworkController.swift in Sources */,
+				E291B21A2463553C0089BCAB /* DetailVideoViewController.swift in Sources */,
+				E291B2162463550E0089BCAB /* VideosViewController.swift in Sources */,
+				E291B220246355D20089BCAB /* VideoCollectionViewCell.swift in Sources */,
 				E21C38E42460B5720095F7B4 /* UIImage+Scaling.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

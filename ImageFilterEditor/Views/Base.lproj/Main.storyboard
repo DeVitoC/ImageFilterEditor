@@ -313,21 +313,218 @@
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="137.94642857142856"/>
         </scene>
-        <!--View Controller-->
+        <!--Videos View Controller-->
         <scene sceneID="N9a-mH-aIG">
             <objects>
-                <viewController id="lYG-p5-90b" sceneMemberID="viewController">
+                <viewController id="lYG-p5-90b" customClass="VideosViewController" customModule="ImageFilterEditor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Eg1-3T-yBo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="R29-BZ-xcX">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rZy-5O-qHB">
+                                    <size key="itemSize" width="187" height="262"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="VideoCell" id="sXi-bn-JLp" customClass="VideoCollectionViewCell" customModule="ImageFilterEditor" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="187" height="262"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hlF-2l-a83">
+                                            <rect key="frame" x="0.0" y="0.0" width="187" height="262"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O5g-8m-JQ3">
+                                                    <rect key="frame" x="0.0" y="0.0" width="187" height="231"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOK-Vo-4sS">
+                                                    <rect key="frame" x="5" y="236" width="177" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ZOK-Vo-4sS" firstAttribute="leading" secondItem="hlF-2l-a83" secondAttribute="leading" constant="5" id="4Pl-cz-GhG"/>
+                                                <constraint firstItem="ZOK-Vo-4sS" firstAttribute="top" secondItem="O5g-8m-JQ3" secondAttribute="bottom" constant="5" id="6Yb-mn-hXU"/>
+                                                <constraint firstItem="O5g-8m-JQ3" firstAttribute="top" secondItem="hlF-2l-a83" secondAttribute="top" id="UtJ-ho-XuE"/>
+                                                <constraint firstAttribute="trailing" secondItem="ZOK-Vo-4sS" secondAttribute="trailing" constant="5" id="jot-Y1-HyQ"/>
+                                                <constraint firstItem="O5g-8m-JQ3" firstAttribute="leading" secondItem="hlF-2l-a83" secondAttribute="leading" id="naj-76-71i"/>
+                                                <constraint firstAttribute="trailing" secondItem="O5g-8m-JQ3" secondAttribute="trailing" id="ntZ-zm-rkJ"/>
+                                                <constraint firstAttribute="bottom" secondItem="ZOK-Vo-4sS" secondAttribute="bottom" constant="5" id="uEq-aD-5oP"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="187" height="262"/>
+                                        <connections>
+                                            <outlet property="titleAndArtistLabel" destination="ZOK-Vo-4sS" id="V81-Mz-HOS"/>
+                                            <outlet property="videoView" destination="O5g-8m-JQ3" id="TUF-EC-qIb"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="R29-BZ-xcX" firstAttribute="top" secondItem="qlW-dz-zxn" secondAttribute="top" id="7ZQ-05-9Uf"/>
+                            <constraint firstItem="qlW-dz-zxn" firstAttribute="bottom" secondItem="R29-BZ-xcX" secondAttribute="bottom" id="Mwa-NZ-2tx"/>
+                            <constraint firstItem="qlW-dz-zxn" firstAttribute="trailing" secondItem="R29-BZ-xcX" secondAttribute="trailing" id="OpD-kB-Pf8"/>
+                            <constraint firstItem="R29-BZ-xcX" firstAttribute="leading" secondItem="qlW-dz-zxn" secondAttribute="leading" id="l4a-vB-hTn"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="qlW-dz-zxn"/>
                     </view>
-                    <navigationItem key="navigationItem" id="nca-Gb-lkr"/>
+                    <navigationItem key="navigationItem" id="nca-Gb-lkr">
+                        <barButtonItem key="rightBarButtonItem" title="Create Video Post" id="PYQ-t0-b1H">
+                            <connections>
+                                <action selector="createVideoTapped:" destination="lYG-p5-90b" id="d5l-xM-aPv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="videosCollectionView" destination="R29-BZ-xcX" id="qSh-lO-HGu"/>
+                        <segue destination="obD-bW-zaA" kind="show" identifier="AddVideoSegue" id="MvU-HD-GGE"/>
+                        <segue destination="UGF-A1-0so" kind="show" identifier="VideoDetailSegue" id="Bry-hQ-Ogs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uOq-5E-cjy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1909" y="477"/>
+            <point key="canvasLocation" x="1908.6956521739132" y="476.78571428571428"/>
+        </scene>
+        <!--Add Video View Controller-->
+        <scene sceneID="Tm9-XH-6KQ">
+            <objects>
+                <viewController id="obD-bW-zaA" customClass="AddVideoViewController" customModule="ImageFilterEditor" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="e1L-ZX-MDc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Thj-gR-jav">
+                                <rect key="frame" x="169.5" y="690" width="75" height="73"/>
+                                <state key="normal" image="video.circle.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="50" scale="large" weight="bold"/>
+                                </state>
+                                <state key="selected" image="stop.circle.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="50" scale="large" weight="bold"/>
+                                </state>
+                                <connections>
+                                    <action selector="recordButtonTapped:" destination="obD-bW-zaA" eventType="touchUpInside" id="J7n-I2-kbA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="8ie-iF-2TI" firstAttribute="bottom" secondItem="Thj-gR-jav" secondAttribute="bottom" constant="50" id="iAk-R7-e7w"/>
+                            <constraint firstItem="Thj-gR-jav" firstAttribute="centerX" secondItem="e1L-ZX-MDc" secondAttribute="centerX" id="sfI-rX-CN3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8ie-iF-2TI"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="0rX-Ad-Ifb">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="save" id="4A6-q3-Xep">
+                                <connections>
+                                    <action selector="saveButtonTapped:" destination="obD-bW-zaA" id="JTS-SQ-psz"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="cancel" id="rKK-6i-FnK">
+                                <connections>
+                                    <action selector="cancelButtonTapped:" destination="obD-bW-zaA" id="XZf-B0-051"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="recordButton" destination="Thj-gR-jav" id="n0D-VP-5wk"/>
+                        <outlet property="videoPreviewView" destination="e1L-ZX-MDc" id="GxO-Ek-WIz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xzj-om-gnY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2687" y="477"/>
+        </scene>
+        <!--Detail Video View Controller-->
+        <scene sceneID="wst-1x-xJs">
+            <objects>
+                <viewController id="UGF-A1-0so" customClass="DetailVideoViewController" customModule="ImageFilterEditor" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yAK-s2-4jf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9ba-xZ-d8w">
+                                <rect key="frame" x="134.5" y="658" width="145" height="59"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By - Mario Andretti" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFp-9o-vwJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="145" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEb-rA-pNe">
+                                        <rect key="frame" x="46.5" y="30.5" width="52.5" height="28.5"/>
+                                        <state key="normal" image="recordingtape" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="33" scale="large" weight="bold"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="playAudioComment:" destination="UGF-A1-0so" eventType="touchUpInside" id="dDA-zP-NnR"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0JX-FM-kon">
+                                <rect key="frame" x="20" y="737" width="374" height="36"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPK-oK-QkF">
+                                        <rect key="frame" x="0.0" y="0.0" width="76" height="36"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Edit Title"/>
+                                        <connections>
+                                            <action selector="editTitle:" destination="UGF-A1-0so" eventType="touchUpInside" id="tyY-0b-2cg"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1TV-KM-Zwr">
+                                        <rect key="frame" x="105" y="0.0" width="181" height="36"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Add Audio Comment"/>
+                                        <connections>
+                                            <action selector="addAudioComment:" destination="UGF-A1-0so" eventType="touchUpInside" id="l2R-NN-k1z"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="weD-u6-boC">
+                                        <rect key="frame" x="331" y="0.0" width="43" height="36"/>
+                                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="saveVideo:" destination="UGF-A1-0so" eventType="touchUpInside" id="vQg-yC-RUL"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="9ba-xZ-d8w" firstAttribute="centerX" secondItem="yAK-s2-4jf" secondAttribute="centerX" id="Z93-lg-wEL"/>
+                            <constraint firstItem="4ah-LM-YQc" firstAttribute="trailing" secondItem="0JX-FM-kon" secondAttribute="trailing" constant="20" id="bOr-Li-ONE"/>
+                            <constraint firstItem="0JX-FM-kon" firstAttribute="leading" secondItem="4ah-LM-YQc" secondAttribute="leading" constant="20" id="gYH-cZ-M83"/>
+                            <constraint firstItem="0JX-FM-kon" firstAttribute="top" secondItem="9ba-xZ-d8w" secondAttribute="bottom" constant="20" id="lEr-li-VwV"/>
+                            <constraint firstItem="4ah-LM-YQc" firstAttribute="bottom" secondItem="0JX-FM-kon" secondAttribute="bottom" constant="40" id="yQ8-V6-d7d"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4ah-LM-YQc"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="0hL-2X-iIs"/>
+                    <connections>
+                        <outlet property="artistLabel" destination="FFp-9o-vwJ" id="S7W-qw-uQh"/>
+                        <outlet property="videoView" destination="yAK-s2-4jf" id="XNV-65-wMG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fB3-IE-npG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3414" y="477"/>
         </scene>
         <!--Audio Comments-->
         <scene sceneID="j8V-xX-JTw">
@@ -579,7 +776,9 @@
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="recordingtape" catalog="system" width="128" height="60"/>
         <image name="stop.circle" catalog="system" width="128" height="121"/>
+        <image name="stop.circle.fill" catalog="system" width="128" height="121"/>
         <image name="video" catalog="system" width="128" height="83"/>
+        <image name="video.circle.fill" catalog="system" width="128" height="121"/>
         <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>
