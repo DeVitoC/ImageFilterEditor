@@ -18,6 +18,7 @@ class AddVideoViewController: UIViewController {
     
     // MARK: - IBActions
     @IBAction func recordButtonTapped(_ sender: Any) {
+        
     }
     @IBAction func saveButtonTapped(_ sender: Any) {
     }

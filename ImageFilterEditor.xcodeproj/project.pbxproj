@@ -47,6 +47,7 @@
 		E291B21E246355610089BCAB /* VideoPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B21D246355610089BCAB /* VideoPost.swift */; };
 		E291B220246355D20089BCAB /* VideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B21F246355D20089BCAB /* VideoCollectionViewCell.swift */; };
 		E291B222246367A10089BCAB /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B221246367A10089BCAB /* VideoPlayerView.swift */; };
+		E291B224246369E90089BCAB /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B223246369E90089BCAB /* CameraPreviewView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +94,7 @@
 		E291B21D246355610089BCAB /* VideoPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPost.swift; sourceTree = "<group>"; };
 		E291B21F246355D20089BCAB /* VideoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCollectionViewCell.swift; sourceTree = "<group>"; };
 		E291B221246367A10089BCAB /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
+		E291B223246369E90089BCAB /* CameraPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,7 @@
 				E291B209246261210089BCAB /* AudioCommentTableViewCell.swift */,
 				E291B21F246355D20089BCAB /* VideoCollectionViewCell.swift */,
 				E291B221246367A10089BCAB /* VideoPlayerView.swift */,
+				E291B223246369E90089BCAB /* CameraPreviewView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				E21C38DB2460B3870095F7B4 /* FilterTypeCollectionViewCell.swift in Sources */,
 				E21C38E62460BC240095F7B4 /* MyFilters.swift in Sources */,
 				E21C38E02460B5330095F7B4 /* CustomFilter.swift in Sources */,
+				E291B224246369E90089BCAB /* CameraPreviewView.swift in Sources */,
 				E291B20A246261210089BCAB /* AudioCommentTableViewCell.swift in Sources */,
 				E291B20E24626B570089BCAB /* audioHelperMethods.swift in Sources */,
 				E291B208246261000089BCAB /* AudioCommentsViewController.swift in Sources */,
