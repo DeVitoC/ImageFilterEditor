@@ -385,6 +385,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="createVideoPostButton" destination="PYQ-t0-b1H" id="0kH-cR-YKr"/>
                         <outlet property="videosCollectionView" destination="R29-BZ-xcX" id="qSh-lO-HGu"/>
                         <segue destination="obD-bW-zaA" kind="show" identifier="AddVideoSegue" id="MvU-HD-GGE"/>
                         <segue destination="UGF-A1-0so" kind="show" identifier="VideoDetailSegue" id="Bry-hQ-Ogs"/>
