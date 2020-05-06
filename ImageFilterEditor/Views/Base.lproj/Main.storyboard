@@ -432,9 +432,6 @@
                                             </label>
                                             <slider opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ygd-5x-AJ5">
                                                 <rect key="frame" x="68" y="0.0" width="308" height="51"/>
-                                                <connections>
-                                                    <action selector="recordingSliderDragged:" destination="ShS-Lo-CDs" eventType="valueChanged" id="upk-ls-3l7"/>
-                                                </connections>
                                             </slider>
                                         </subviews>
                                     </stackView>
@@ -454,7 +451,7 @@
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" scale="large" weight="bold"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="playButtonTapped:" destination="ShS-Lo-CDs" eventType="touchUpInside" id="lFM-8p-oRm"/>
+                                                    <action selector="recordButtonTapped:" destination="ShS-Lo-CDs" eventType="touchUpInside" id="lFM-8p-oRm"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oV7-kr-zeo">
@@ -508,7 +505,7 @@
                     <navigationItem key="navigationItem" title="Audio Comments" id="Iuh-Vz-xkK"/>
                     <connections>
                         <outlet property="audioCommentsTableView" destination="XaM-LT-eiW" id="RCI-Yn-EJe"/>
-                        <outlet property="playButton" destination="4jH-dF-7GA" id="Fnz-m5-EF3"/>
+                        <outlet property="recordButton" destination="4jH-dF-7GA" id="Fnz-m5-EF3"/>
                         <outlet property="recordingSlider" destination="Ygd-5x-AJ5" id="6ow-hK-Qzj"/>
                         <outlet property="recordingTimeLabel" destination="Jy6-Mt-XNU" id="30e-2F-A6x"/>
                     </connections>
