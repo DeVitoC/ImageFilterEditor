@@ -21,6 +21,7 @@ class AudioCommentsViewController: UIViewController {
     }
     var audioPlayer: AVAudioPlayer?
     var recordingTime: Double = 0.00
+    let networkController = NetworkController()
     
     // MARK: - IBOutlets
     @IBOutlet weak var audioCommentsTableView: UITableView!
@@ -182,8 +183,11 @@ extension AudioCommentsViewController: AVAudioRecorderDelegate {
         if flag,
             let recordingUrl = recordingURL {
             let newAudioComment = AudioComment(author: "Me", recording: recordingUrl)
-            audioComments?.append(newAudioComment)
-            audioCommentsTableView.reloadData()
+            networkController.createAudioComment(by: "Me", storedAt: recordingUrl) {
+                DispatchQueue.main.async {
+                    self.audioCommentsTableView.reloadData()
+                }
+            }
         }
         updateViews(stop: true)
     }
