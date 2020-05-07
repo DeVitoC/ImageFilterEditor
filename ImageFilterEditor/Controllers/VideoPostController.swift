@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import AVFoundation
 
 class VideoPostController {
     var videoPosts: [VideoPost] = []
+    var videoPostsDict: [String : VideoPost] = [:]
     let baseURL = URL(string: "https://lambdatimeline-9654e.firebaseio.com/")!
     
     func createVideoPost(by author: String, storedAt url: URL, completion: @escaping () -> Void) {
@@ -50,7 +52,7 @@ class VideoPostController {
         }.resume()
     }
     
-    func fetchAudioComments(completion: @escaping () -> Void) {
+    func fetchVideoPosts(completion: @escaping () -> Void) {
         
         let requestURL = baseURL.appendingPathComponent("videoPosts").appendingPathExtension("json")
         
@@ -70,6 +72,7 @@ class VideoPostController {
             
             do {
                 let fetchedVideos = try JSONDecoder().decode([String : VideoPost].self, from: data)
+                self.videoPostsDict = fetchedVideos
                 self.videoPosts = Array(fetchedVideos.values)
             } catch {
                 self.videoPosts = []
@@ -78,5 +81,20 @@ class VideoPostController {
             
             completion()
         }.resume()
+    }
+    
+    func saveVideos() {
+        for videoPost in videoPosts {
+            //let video = AVMovie(data: videoPost.video, options: nil)
+            guard let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+            let videoURL = path.appendingPathComponent(videoPost.identifier)
+            do {
+                try videoPost.video.write(to: videoURL)
+            } catch {
+                print("Error saving video to phone: \(error)")
+                return
+            }
+            //videoPost.videoURL = videoURL
+        }
     }
 }

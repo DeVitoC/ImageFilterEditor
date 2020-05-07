@@ -34,6 +34,16 @@ class VideosViewController: UIViewController {
         videosCollectionView.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        videoPostController.fetchVideoPosts {
+            DispatchQueue.main.async {
+                self.videos = self.videoPostController.videoPosts
+                self.videosCollectionView.reloadData()
+            }
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -93,7 +103,8 @@ extension VideosViewController: UICollectionViewDataSource, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = videosCollectionView.dequeueReusableCell(withReuseIdentifier: "VideoCell", for: indexPath) as? VideoCollectionViewCell else { return UICollectionViewCell() }
-        
+        cell.videoController = videoPostController
+        cell.videoPost = videoPostController.videoPosts[indexPath.row]
         return cell
     }
     
