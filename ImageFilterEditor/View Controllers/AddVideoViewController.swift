@@ -18,6 +18,7 @@ class AddVideoViewController: UIViewController {
     private var player: AVPlayer!
     private let playerView = VideoPlayerView()
     var videoPostController: VideoPostController?
+    private var videoURL: URL?
     
     var videoLooper: AVPlayerLooper?
     
@@ -29,11 +30,20 @@ class AddVideoViewController: UIViewController {
     @IBAction func recordButtonTapped(_ sender: Any) {
         toggleRecord()
     }
+    
     @IBAction func saveButtonTapped(_ sender: Any) {
-        
+        let alert = UIAlertController(title: "Saving video", message: "Please wait", preferredStyle: .alert)
+        present(alert, animated: true, completion: nil)
+        videoPostController?.createVideoPost(by: "Me", storedAt: Bundle.main.url(forResource: "357421238", withExtension: "mp4")!, completion: {
+            DispatchQueue.main.async {
+                alert.dismiss(animated: true, completion: nil)
+                self.navigationController?.popViewController(animated: true)
+            }
+        })
     }
+    
     @IBAction func cancelButtonTapped(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
     
     // MARK: - View Methods
@@ -156,6 +166,7 @@ extension AddVideoViewController: AVCaptureFileOutputRecordingDelegate {
             print("Error saving video: \(error)")
         } else {
             // show movie
+            videoURL = outputFileURL
             playMovie(url: outputFileURL)
             
         }
