@@ -9,8 +9,14 @@
 import Foundation
 import MapKit
 
-struct Geotag {
+class Geotag: NSObject, Codable {
     let latitude: Double
     let longitude: Double
     let time: Date
+    
+    internal init(latitude: Double, longitude: Double, time: Date) {
+        self.latitude = latitude
+        self.longitude = longitude
+        self.time = time
+    }
 }

@@ -51,6 +51,9 @@
 		E291B226246376EB0089BCAB /* 357421238.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E291B225246376EB0089BCAB /* 357421238.mp4 */; };
 		E291B228246380880089BCAB /* VideoPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B227246380880089BCAB /* VideoPostController.swift */; };
 		E2E72C072464B1FE00FECB23 /* Geotag.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E72C062464B1FE00FECB23 /* Geotag.swift */; };
+		E2E72C092464B7DE00FECB23 /* Geotag+MKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E72C082464B7DE00FECB23 /* Geotag+MKAnnotation.swift */; };
+		E2E72C0B2464BC8F00FECB23 /* GeotagDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E72C0A2464BC8F00FECB23 /* GeotagDetailView.swift */; };
+		E2E72C0D2464C0C500FECB23 /* GeotagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E72C0C2464C0C500FECB23 /* GeotagViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +104,9 @@
 		E291B225246376EB0089BCAB /* 357421238.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 357421238.mp4; sourceTree = "<group>"; };
 		E291B227246380880089BCAB /* VideoPostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPostController.swift; sourceTree = "<group>"; };
 		E2E72C062464B1FE00FECB23 /* Geotag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geotag.swift; sourceTree = "<group>"; };
+		E2E72C082464B7DE00FECB23 /* Geotag+MKAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Geotag+MKAnnotation.swift"; sourceTree = "<group>"; };
+		E2E72C0A2464BC8F00FECB23 /* GeotagDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeotagDetailView.swift; sourceTree = "<group>"; };
+		E2E72C0C2464C0C500FECB23 /* GeotagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeotagViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +204,7 @@
 				E2E72BFE2464AC6F00FECB23 /* ImageFIlter */,
 				E2E72BFF2464AC8400FECB23 /* Audio */,
 				E2E72C002464AC8D00FECB23 /* VideoPosts */,
+				E2E72C0C2464C0C500FECB23 /* GeotagViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -209,6 +216,7 @@
 				E2E72C042464AD3A00FECB23 /* ImageFilterViews */,
 				E2E72C032464AD3300FECB23 /* AudioViews */,
 				E2E72C022464AD2900FECB23 /* VideoViews */,
+				E2E72C0A2464BC8F00FECB23 /* GeotagDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -220,6 +228,7 @@
 				E291B20B2462676A0089BCAB /* AudioComment.swift */,
 				E291B21D246355610089BCAB /* VideoPost.swift */,
 				E2E72C062464B1FE00FECB23 /* Geotag.swift */,
+				E2E72C082464B7DE00FECB23 /* Geotag+MKAnnotation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -391,13 +400,16 @@
 				E21C38C32460AEBB0095F7B4 /* SceneDelegate.swift in Sources */,
 				E21C38D92460B36C0095F7B4 /* FilterSelectionViewController.swift in Sources */,
 				E21C38E82460D1470095F7B4 /* ApplyFilterViewController.swift in Sources */,
+				E2E72C0D2464C0C500FECB23 /* GeotagViewController.swift in Sources */,
 				E291B20C2462676A0089BCAB /* AudioComment.swift in Sources */,
 				E291B2102462955F0089BCAB /* NetworkController.swift in Sources */,
 				E291B21A2463553C0089BCAB /* DetailVideoViewController.swift in Sources */,
 				E291B2162463550E0089BCAB /* VideosViewController.swift in Sources */,
 				E291B220246355D20089BCAB /* VideoCollectionViewCell.swift in Sources */,
+				E2E72C092464B7DE00FECB23 /* Geotag+MKAnnotation.swift in Sources */,
 				E21C38E42460B5720095F7B4 /* UIImage+Scaling.swift in Sources */,
 				E291B228246380880089BCAB /* VideoPostController.swift in Sources */,
+				E2E72C0B2464BC8F00FECB23 /* GeotagDetailView.swift in Sources */,
 				E291B222246367A10089BCAB /* VideoPlayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
