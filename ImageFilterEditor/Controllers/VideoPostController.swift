@@ -84,16 +84,17 @@ class VideoPostController {
     }
     
     func saveVideos() {
-        for videoPost in videoPosts {
+        for videoPost in 0..<videoPosts.count {
             //let video = AVMovie(data: videoPost.video, options: nil)
             guard let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
-            let videoURL = path.appendingPathComponent(videoPost.identifier)
+            let videoURL = path.appendingPathComponent(videoPosts[videoPost].identifier)
             do {
-                try videoPost.video.write(to: videoURL)
+                try videoPosts[videoPost].video.write(to: videoURL)
             } catch {
                 print("Error saving video to phone: \(error)")
                 return
             }
+            
             //videoPost.videoURL = videoURL
         }
     }

@@ -50,6 +50,7 @@
 		E291B224246369E90089BCAB /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B223246369E90089BCAB /* CameraPreviewView.swift */; };
 		E291B226246376EB0089BCAB /* 357421238.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = E291B225246376EB0089BCAB /* 357421238.mp4 */; };
 		E291B228246380880089BCAB /* VideoPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E291B227246380880089BCAB /* VideoPostController.swift */; };
+		E2E72C072464B1FE00FECB23 /* Geotag.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E72C062464B1FE00FECB23 /* Geotag.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +100,7 @@
 		E291B223246369E90089BCAB /* CameraPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
 		E291B225246376EB0089BCAB /* 357421238.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 357421238.mp4; sourceTree = "<group>"; };
 		E291B227246380880089BCAB /* VideoPostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPostController.swift; sourceTree = "<group>"; };
+		E2E72C062464B1FE00FECB23 /* Geotag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geotag.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,17 +176,8 @@
 		E21C38D42460AF050095F7B4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E21C38C02460AEBB0095F7B4 /* AppDelegate.swift */,
-				E21C38C22460AEBB0095F7B4 /* SceneDelegate.swift */,
-				E21C38C92460AEBE0095F7B4 /* Assets.xcassets */,
-				E24312C3246211B500EB79FF /* GoogleService-Info.plist */,
-				E21C38CB2460AEBE0095F7B4 /* LaunchScreen.storyboard */,
-				E291B225246376EB0089BCAB /* 357421238.mp4 */,
-				E21C38CE2460AEBE0095F7B4 /* Info.plist */,
-				E21C38E32460B5720095F7B4 /* UIImage+Scaling.swift */,
-				E21C38E52460BC240095F7B4 /* MyFilters.swift */,
-				E291B20D24626B570089BCAB /* audioHelperMethods.swift */,
-				E291B2112462978E0089BCAB /* HTTPMethod.swift */,
+				E2E72C052464AD6000FECB23 /* Other Resources */,
+				E2E72C012464ACA800FECB23 /* HelperFiles */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -202,12 +195,9 @@
 		E21C38D62460B2FE0095F7B4 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E21C38D82460B36C0095F7B4 /* FilterSelectionViewController.swift */,
-				E21C38E72460D1470095F7B4 /* ApplyFilterViewController.swift */,
-				E291B207246261000089BCAB /* AudioCommentsViewController.swift */,
-				E291B2152463550E0089BCAB /* VideosViewController.swift */,
-				E291B2172463552A0089BCAB /* AddVideoViewController.swift */,
-				E291B2192463553C0089BCAB /* DetailVideoViewController.swift */,
+				E2E72BFE2464AC6F00FECB23 /* ImageFIlter */,
+				E2E72BFF2464AC8400FECB23 /* Audio */,
+				E2E72C002464AC8D00FECB23 /* VideoPosts */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -216,11 +206,9 @@
 			isa = PBXGroup;
 			children = (
 				E21C38C62460AEBB0095F7B4 /* Main.storyboard */,
-				E21C38DA2460B3870095F7B4 /* FilterTypeCollectionViewCell.swift */,
-				E291B209246261210089BCAB /* AudioCommentTableViewCell.swift */,
-				E291B21F246355D20089BCAB /* VideoCollectionViewCell.swift */,
-				E291B221246367A10089BCAB /* VideoPlayerView.swift */,
-				E291B223246369E90089BCAB /* CameraPreviewView.swift */,
+				E2E72C042464AD3A00FECB23 /* ImageFilterViews */,
+				E2E72C032464AD3300FECB23 /* AudioViews */,
+				E2E72C022464AD2900FECB23 /* VideoViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -231,8 +219,87 @@
 				E21C38DF2460B5330095F7B4 /* CustomFilter.swift */,
 				E291B20B2462676A0089BCAB /* AudioComment.swift */,
 				E291B21D246355610089BCAB /* VideoPost.swift */,
+				E2E72C062464B1FE00FECB23 /* Geotag.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		E2E72BFE2464AC6F00FECB23 /* ImageFIlter */ = {
+			isa = PBXGroup;
+			children = (
+				E21C38D82460B36C0095F7B4 /* FilterSelectionViewController.swift */,
+				E21C38E72460D1470095F7B4 /* ApplyFilterViewController.swift */,
+			);
+			path = ImageFIlter;
+			sourceTree = "<group>";
+		};
+		E2E72BFF2464AC8400FECB23 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				E291B207246261000089BCAB /* AudioCommentsViewController.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		E2E72C002464AC8D00FECB23 /* VideoPosts */ = {
+			isa = PBXGroup;
+			children = (
+				E291B2152463550E0089BCAB /* VideosViewController.swift */,
+				E291B2172463552A0089BCAB /* AddVideoViewController.swift */,
+				E291B2192463553C0089BCAB /* DetailVideoViewController.swift */,
+			);
+			path = VideoPosts;
+			sourceTree = "<group>";
+		};
+		E2E72C012464ACA800FECB23 /* HelperFiles */ = {
+			isa = PBXGroup;
+			children = (
+				E291B225246376EB0089BCAB /* 357421238.mp4 */,
+				E21C38E32460B5720095F7B4 /* UIImage+Scaling.swift */,
+				E21C38E52460BC240095F7B4 /* MyFilters.swift */,
+				E291B2112462978E0089BCAB /* HTTPMethod.swift */,
+				E291B20D24626B570089BCAB /* audioHelperMethods.swift */,
+			);
+			name = HelperFiles;
+			sourceTree = "<group>";
+		};
+		E2E72C022464AD2900FECB23 /* VideoViews */ = {
+			isa = PBXGroup;
+			children = (
+				E291B21F246355D20089BCAB /* VideoCollectionViewCell.swift */,
+				E291B221246367A10089BCAB /* VideoPlayerView.swift */,
+				E291B223246369E90089BCAB /* CameraPreviewView.swift */,
+			);
+			path = VideoViews;
+			sourceTree = "<group>";
+		};
+		E2E72C032464AD3300FECB23 /* AudioViews */ = {
+			isa = PBXGroup;
+			children = (
+				E291B209246261210089BCAB /* AudioCommentTableViewCell.swift */,
+			);
+			path = AudioViews;
+			sourceTree = "<group>";
+		};
+		E2E72C042464AD3A00FECB23 /* ImageFilterViews */ = {
+			isa = PBXGroup;
+			children = (
+				E21C38DA2460B3870095F7B4 /* FilterTypeCollectionViewCell.swift */,
+			);
+			path = ImageFilterViews;
+			sourceTree = "<group>";
+		};
+		E2E72C052464AD6000FECB23 /* Other Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E21C38C02460AEBB0095F7B4 /* AppDelegate.swift */,
+				E21C38C22460AEBB0095F7B4 /* SceneDelegate.swift */,
+				E21C38C92460AEBE0095F7B4 /* Assets.xcassets */,
+				E24312C3246211B500EB79FF /* GoogleService-Info.plist */,
+				E21C38CB2460AEBE0095F7B4 /* LaunchScreen.storyboard */,
+				E21C38CE2460AEBE0095F7B4 /* Info.plist */,
+			);
+			name = "Other Resources";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,6 +381,7 @@
 				E21C38E02460B5330095F7B4 /* CustomFilter.swift in Sources */,
 				E291B224246369E90089BCAB /* CameraPreviewView.swift in Sources */,
 				E291B20A246261210089BCAB /* AudioCommentTableViewCell.swift in Sources */,
+				E2E72C072464B1FE00FECB23 /* Geotag.swift in Sources */,
 				E291B20E24626B570089BCAB /* audioHelperMethods.swift in Sources */,
 				E291B208246261000089BCAB /* AudioCommentsViewController.swift in Sources */,
 				E21C38C12460AEBB0095F7B4 /* AppDelegate.swift in Sources */,
