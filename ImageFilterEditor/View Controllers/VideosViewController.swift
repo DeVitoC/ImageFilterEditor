@@ -13,6 +13,7 @@ class VideosViewController: UIViewController {
     
     // MARK: - Properties
     var videos: [Any] = []
+    private let videoPostController = VideoPostController()
     
     // MARK: - IBOutlets
     @IBOutlet weak var videosCollectionView: UICollectionView!
@@ -76,7 +77,11 @@ class VideosViewController: UIViewController {
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.identifier == "AddVideoSegue" {
+            guard let addVideoVC = segue.destination as? AddVideoViewController else { return }
+            addVideoVC.videoPostController = videoPostController
+            
+        }
     }
 
 }

@@ -17,6 +17,9 @@ class AddVideoViewController: UIViewController {
     
     private var player: AVPlayer!
     private let playerView = VideoPlayerView()
+    var videoPostController: VideoPostController?
+    
+    var videoLooper: AVPlayerLooper?
     
     // MARK: - IBOutlets
     @IBOutlet var videoPreviewView: CameraPreviewView!
@@ -121,7 +124,10 @@ class AddVideoViewController: UIViewController {
     }
     
     private func playMovie(url: URL) {
-        player = AVPlayer(url: url)
+        let asset = AVAsset(url: url)
+        let item = AVPlayerItem(asset: asset)
+        let player = AVQueuePlayer(playerItem: item)
+//        player = AVPlayer(url: url)
         playerView.player = player
         // top left corner (Fullscreen, you'd need a close button)
         var topRect = view.bounds
@@ -131,9 +137,11 @@ class AddVideoViewController: UIViewController {
         topRect.origin.y = view.bounds.height/2 - topRect.size.height/2
         topRect.origin.x = view.bounds.width/2 - topRect.size.width/2
         playerView.frame = topRect
-        // FIXME: Don't add every time we play
+        videoLooper = AVPlayerLooper(player: player, templateItem: item)
         player.play()
     }
+    
+    
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
