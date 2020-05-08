@@ -39,7 +39,7 @@ class AudioCommentTableViewCell: UITableViewCell {
     @IBAction func playButtonTapped(_ sender: Any) {
         if isPlaying {
             pause()
-            playbackSliderStackView.isHidden = true
+            //playbackSliderStackView.isHidden = true
         } else {
             play()
             playbackSliderStackView.isHidden = false
@@ -87,10 +87,15 @@ class AudioCommentTableViewCell: UITableViewCell {
     // MARK: - Action Methods
     func loadAudio() {
         guard let commentURL = audioComment?.recording else { return }
-        audioPlayer = try? AVAudioPlayer(contentsOf: commentURL)
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: commentURL)
+        } catch {
+            print("audioPlayer failed to load.")
+        }
     }
     
     func play() {
+        loadAudio()
         audioPlayer?.play()
         startTimer()
         updateViews()
@@ -116,6 +121,17 @@ class AudioCommentTableViewCell: UITableViewCell {
         timer?.invalidate()
         timer = nil
     }
+    
+    func getPlaybackURL() -> URL {
+        let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        
+        guard let name = audioComment?.date else { fatalError() }
+        let file = documents.appendingPathComponent(name, isDirectory: false).appendingPathExtension("caf")
+        
+        print("recording URL: \(file)")
+        
+        return file
+    }
 }
 
 extension AudioCommentTableViewCell: AVAudioPlayerDelegate {
@@ -129,5 +145,6 @@ extension AudioCommentTableViewCell: AVAudioPlayerDelegate {
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         updateViews()
+        playbackSliderStackView.isHidden = true
     }
 }

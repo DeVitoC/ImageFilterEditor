@@ -22,6 +22,7 @@ class AudioCommentsViewController: UIViewController {
     var audioPlayer: AVAudioPlayer?
     var recordingTime: Double = 0.00
     let networkController = NetworkController()
+    var date: String?
     
     // MARK: - IBOutlets
     @IBOutlet weak var audioCommentsTableView: UITableView!
@@ -92,7 +93,7 @@ class AudioCommentsViewController: UIViewController {
         recordingSlider.minimumValue = 0
         recordingSlider.maximumValue = Float(30)
         recordingSlider.value = Float(currentTime)
-        audioCommentsTableView.reloadData()
+        //audioCommentsTableView.reloadData()
     }
     
     deinit {
@@ -104,6 +105,7 @@ class AudioCommentsViewController: UIViewController {
         let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         
         let name = ISO8601DateFormatter.string(from: Date(), timeZone: .current, formatOptions: .withInternetDateTime)
+        date = name
         let file = documents.appendingPathComponent(name, isDirectory: false).appendingPathExtension("caf")
         
         print("recording URL: \(file)")
@@ -167,6 +169,7 @@ class AudioCommentsViewController: UIViewController {
     
     func startRecording() {
         let recordingURL = createNewRecordingURL()
+        self.recordingURL = recordingURL
         
         //let format = AVAudioFormat(standardFormatWithSampleRate: 44_100, channels: 1)!
         guard let format = AVAudioFormat(commonFormat: .pcmFormatFloat32, sampleRate: 48_000, channels: 1, interleaved: false) else { return }
@@ -190,8 +193,8 @@ class AudioCommentsViewController: UIViewController {
     }
     
     func saveAudioComment() {
-        if let recordingUrl = recordingURL, !isRecording {
-            let audioComment = networkController.createAudioComment(by: "Me", storedAt: recordingUrl) {
+        if let recordingUrl = recordingURL, !isRecording, let date = date {
+            let audioComment = networkController.createAudioComment(by: "Me", date: date, storedAt: recordingUrl) {
                 DispatchQueue.main.async {
                     self.audioCommentsTableView.reloadData()
                 }

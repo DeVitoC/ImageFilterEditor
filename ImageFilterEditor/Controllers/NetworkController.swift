@@ -12,7 +12,7 @@ class NetworkController {
     let baseURL = URL(string: "https://lambdatimeline-9654e.firebaseio.com/")!
     var audioComments: [AudioComment] = []
     
-    func createAudioComment(by author: String, storedAt url: URL, completion: @escaping () -> Void) -> AudioComment {
+    func createAudioComment(by author: String, date: String, storedAt url: URL, completion: @escaping () -> Void) -> AudioComment {
         
         let data: Data
         do {
@@ -22,7 +22,7 @@ class NetworkController {
             fatalError("Error converting audio file to data: \(error)")
             
         }
-        let comment = AudioComment(author: author, recording: url, audio: data)
+        let comment = AudioComment(author: author, recording: url, audio: data, date: date)
         audioComments.append(comment)
         
         //let requestURL = baseURL.appendingPathComponent(comment.identifier).appendingPathExtension("json")

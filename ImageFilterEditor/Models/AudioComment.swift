@@ -14,12 +14,14 @@ struct AudioComment: Codable {
     var recording: URL
     var identifier: String
     var audio: Data
+    var date: String
     
-    init(author: String, recording: URL, audio: Data, identifier: String = UUID().uuidString) {
+    init(author: String, recording: URL, audio: Data, date: String, identifier: String = UUID().uuidString) {
         self.author = author
         self.recording = recording
         self.audio = audio
         self.identifier = identifier
+        self.date = date
     }
     
     enum CodingKeys: String, CodingKey {
@@ -27,5 +29,6 @@ struct AudioComment: Codable {
         case recording
         case identifier
         case audio
+        case date
     }
 }
