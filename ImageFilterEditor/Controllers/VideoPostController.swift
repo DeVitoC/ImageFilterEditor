@@ -77,9 +77,13 @@ class VideoPostController {
             }
             
             do {
-                let fetchedVideos = try JSONDecoder().decode([String : VideoPost].self, from: data)
-                self.videoPostsDict = fetchedVideos
-                self.videoPosts = Array(fetchedVideos.values)
+                let fetchedVideos = try JSONDecoder().decode([String : [String : VideoPost]].self, from: data)
+//                var dict: [String : VideoPost] = [:]
+//                for (key, value) in fetchedVideos {
+//                    dict
+//                }
+//                self.videoPostsDict = Dictionary(uniqueKeysWithValues: fetchedVideos.values)
+//                self.videoPosts = Array(fetchedVideos.values)
             } catch {
                 self.videoPosts = []
                 NSLog("Error decoding video posts from JSON data: \(error)")
