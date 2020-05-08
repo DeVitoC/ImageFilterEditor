@@ -90,17 +90,19 @@ class VideoPostController {
                 self.videoPosts = []
                 NSLog("Error decoding video posts from JSON data: \(error)")
             }
-            
+            self.saveVideosToPhone()
             completion()
         }.resume()
     }
     
-    func saveVideosToPhone(withID: String) {
+    func saveVideosToPhone() {
         for videoPost in 0..<videoPosts.count {
             //let video = AVMovie(data: videoPost.video, options: nil)
             guard let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
-            let videoURL = path.appendingPathComponent(videoPosts[videoPost].identifier)
+            let videoURL = path.appendingPathComponent(videoPosts[videoPost].identifier).appendingPathExtension("mp4")
             do {
+                print(videoURL)
+                //videoPosts[videoPost].video.write(to: path)
                 try videoPosts[videoPost].video.write(to: videoURL)
             } catch {
                 print("Error saving video to phone: \(error)")

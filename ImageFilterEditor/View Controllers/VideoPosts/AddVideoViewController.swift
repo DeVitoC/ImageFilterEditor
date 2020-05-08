@@ -137,7 +137,6 @@ class AddVideoViewController: UIViewController {
         let asset = AVAsset(url: url)
         let item = AVPlayerItem(asset: asset)
         let player = AVQueuePlayer(playerItem: item)
-//        player = AVPlayer(url: url)
         playerView.player = player
         // top left corner (Fullscreen, you'd need a close button)
         var topRect = view.bounds

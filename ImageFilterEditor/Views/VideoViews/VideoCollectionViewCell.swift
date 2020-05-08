@@ -18,7 +18,7 @@ class VideoCollectionViewCell: UICollectionViewCell {
         }
     }
     var videoController: VideoPostController?
-    var videoURL: URL?
+    //var videoURL: URL?
     
     private var player: AVPlayer!
     //private let playerView = VideoPlayerView
@@ -37,19 +37,18 @@ class VideoCollectionViewCell: UICollectionViewCell {
     }
     
     private func playMovie() {
-        var videoID: String
-        guard let videoController = videoController, let videoPost = videoPost else { return }
-        for entry in videoController.videoPostsDict where entry.value.identifier == videoPost.identifier {
-            videoID = entry.key
-            videoURL = videoController.baseURL.appendingPathComponent("videoPosts").appendingPathComponent(videoID).appendingPathExtension("json")
-        }
-        guard let videoURL = videoURL else { return }
-        
-        let asset = AVAsset(url: videoURL)
+        //var videoID: String
+        guard let videoPost = videoPost else { return }
+//        for entry in videoController.videoPostsDict where entry.value.identifier == videoPost.identifier {
+//            videoID = entry.key
+//        }
+//        guard let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+//        let videoURL = path.appendingPathComponent(videoPost.identifier).appendingPathExtension("mp4")
+//        videoPost.u
+        let asset = AVAsset(url: videoPost.videoURL)
         let item = AVPlayerItem(asset: asset)
         let player = AVQueuePlayer(playerItem: item)
         videoView.player = player
-        
         videoLooper = AVPlayerLooper(player: player, templateItem: item)
         player.play()
     }
