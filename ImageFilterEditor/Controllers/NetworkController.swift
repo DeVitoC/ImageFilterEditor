@@ -26,7 +26,7 @@ class NetworkController {
         audioComments.append(comment)
         
         //let requestURL = baseURL.appendingPathComponent(comment.identifier).appendingPathExtension("json")
-        let requestURL = baseURL.appendingPathExtension("json")
+        let requestURL = baseURL.appendingPathComponent("audioComments").appendingPathExtension("json")
         
         var request = URLRequest(url: requestURL)
         
@@ -52,7 +52,7 @@ class NetworkController {
     
     func fetchAudioComments(completion: @escaping () -> Void) {
         
-        let requestURL = baseURL.appendingPathExtension("json")
+        let requestURL = baseURL.appendingPathComponent("audioComments").appendingPathExtension("json")
         
         URLSession.shared.dataTask(with: requestURL) { (data, _, error) in
             

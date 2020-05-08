@@ -24,7 +24,7 @@ class VideoPostController {
             completion()
             return
         }
-        let videoPost = VideoPost(author: author, video: data, videoURL: url)
+        let videoPost = VideoPost(author: author, video: data, geotag: geotag, videoURL: url)
         videoPosts.append(videoPost)
         
         let requestURL = baseURL.appendingPathComponent("videoPosts").appendingPathExtension("json")

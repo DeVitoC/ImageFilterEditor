@@ -12,15 +12,17 @@ struct VideoPost: Codable {
     var author: String
     var video: Data
     var audioComment: AudioComment?
+    var geotag: Geotag
     var identifier: String
     var videoURL: URL
     
-    init(author: String, video: Data, audioComment: AudioComment? = nil, videoURL: URL, identifier: String = UUID().uuidString) {
+    init(author: String, video: Data, audioComment: AudioComment? = nil, geotag: Geotag, videoURL: URL, identifier: String = UUID().uuidString) {
         self.author = author
         self.video = video
         self.audioComment = audioComment
         self.videoURL = videoURL
         self.identifier = identifier
+        self.geotag = geotag
     }
     
     enum CodingKeys: String, CodingKey {
@@ -29,5 +31,6 @@ struct VideoPost: Codable {
         case audioComment
         case videoURL
         case identifier
+        case geotag
     }
 }

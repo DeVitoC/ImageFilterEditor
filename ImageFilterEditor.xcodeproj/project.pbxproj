@@ -54,6 +54,7 @@
 		E2E72C092464B7DE00FECB23 /* Geotag+MKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E72C082464B7DE00FECB23 /* Geotag+MKAnnotation.swift */; };
 		E2E72C0B2464BC8F00FECB23 /* GeotagDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E72C0A2464BC8F00FECB23 /* GeotagDetailView.swift */; };
 		E2E72C0D2464C0C500FECB23 /* GeotagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E72C0C2464C0C500FECB23 /* GeotagViewController.swift */; };
+		E2E72C0F2464CB0B00FECB23 /* GeotagFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E72C0E2464CB0B00FECB23 /* GeotagFetcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +108,7 @@
 		E2E72C082464B7DE00FECB23 /* Geotag+MKAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Geotag+MKAnnotation.swift"; sourceTree = "<group>"; };
 		E2E72C0A2464BC8F00FECB23 /* GeotagDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeotagDetailView.swift; sourceTree = "<group>"; };
 		E2E72C0C2464C0C500FECB23 /* GeotagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeotagViewController.swift; sourceTree = "<group>"; };
+		E2E72C0E2464CB0B00FECB23 /* GeotagFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeotagFetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,7 @@
 				E21C38E12460B5430095F7B4 /* FilterController.swift */,
 				E291B20F2462955F0089BCAB /* NetworkController.swift */,
 				E291B227246380880089BCAB /* VideoPostController.swift */,
+				E2E72C0E2464CB0B00FECB23 /* GeotagFetcher.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				E21C38E82460D1470095F7B4 /* ApplyFilterViewController.swift in Sources */,
 				E2E72C0D2464C0C500FECB23 /* GeotagViewController.swift in Sources */,
 				E291B20C2462676A0089BCAB /* AudioComment.swift in Sources */,
+				E2E72C0F2464CB0B00FECB23 /* GeotagFetcher.swift in Sources */,
 				E291B2102462955F0089BCAB /* NetworkController.swift in Sources */,
 				E291B21A2463553C0089BCAB /* DetailVideoViewController.swift in Sources */,
 				E291B2162463550E0089BCAB /* VideosViewController.swift in Sources */,
