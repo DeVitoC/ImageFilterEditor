@@ -34,7 +34,7 @@ class VideoPostController {
         let videoPost = VideoPost(author: author, video: data, geotag: geotag, videoURL: url)
         videoPosts.append(videoPost)
         
-        let requestURL = baseURL.appendingPathComponent("videoPosts").appendingPathExtension("json")
+        let requestURL = baseURL.appendingPathComponent("videoPosts").appendingPathComponent("\(videoPost.identifier)").appendingPathExtension("json")
         
         var request = URLRequest(url: requestURL)
         
@@ -89,7 +89,7 @@ class VideoPostController {
         }.resume()
     }
     
-    func saveVideos() {
+    func saveVideosToPhone(withID: String) {
         for videoPost in 0..<videoPosts.count {
             //let video = AVMovie(data: videoPost.video, options: nil)
             guard let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
@@ -101,7 +101,90 @@ class VideoPostController {
                 return
             }
             
-            //videoPost.videoURL = videoURL
+            videoPosts[videoPost].videoURL = videoURL
         }
+    }
+    
+    func fetchVideo(identifier: String, completion: @escaping () -> Void) -> VideoPost{
+        
+        guard let videoPost = videoPostForID(identifier: identifier) else {
+            fatalError("Could not find videoPost")
+        }
+        
+        let requestURL = baseURL.appendingPathComponent("videoPosts").appendingPathComponent("\(identifier)").appendingPathExtension("json")
+        
+        URLSession.shared.dataTask(with: requestURL) { (data, _, error) in
+            
+            if let error = error {
+                NSLog("Error fetching video posts: \(error)")
+                completion()
+                return
+            }
+            
+            guard let data = data else {
+                NSLog("No data returned from data task")
+                completion()
+                return
+            }
+            
+            do {
+                let fetchedVideos = try JSONDecoder().decode([String : VideoPost].self, from: data)
+                self.videoPostsDict = fetchedVideos
+                self.videoPosts = Array(fetchedVideos.values)
+            } catch {
+                self.videoPosts = []
+                NSLog("Error decoding video posts from JSON data: \(error)")
+            }
+            
+            completion()
+        }.resume()
+        return videoPost
+    }
+    
+    func updateVideoPost(identifier: String, withAudioComment: AudioComment, completion: @escaping () -> Void) {
+        
+        guard var videoPost = videoPostForID(identifier: identifier) else {
+            return
+        }
+        videoPost.audioComment = withAudioComment
+        
+        let requestURL = baseURL.appendingPathComponent("videoPosts").appendingPathComponent("\(identifier)").appendingPathExtension("json")
+        
+        var request = URLRequest(url: requestURL)
+        
+        request.httpMethod = HTTPMethod.post.rawValue
+        
+        do {
+            request.httpBody = try JSONEncoder().encode(videoPost)
+        } catch {
+            NSLog("Error encoding video post to JSON: \(error)")
+        }
+        
+        URLSession.shared.dataTask(with: request) { (data, _, error) in
+            
+            if let error = error {
+                NSLog("Error with video post creation data task: \(error)")
+                completion()
+                return
+            }
+            
+            completion()
+        }.resume()
+    }
+    
+    func videoPostForID(identifier: String) -> VideoPost? {
+        var videoPost: VideoPost?
+        
+        // find item in video posts if it exists
+        for item in videoPosts where item.identifier == identifier {
+            videoPost = item
+        }
+        
+        // test whether videoPost is nil, if so, print message
+        guard videoPost != nil else {
+            print("Video Post was not found in video posts array.")
+            return nil}
+        
+        return videoPost
     }
 }
