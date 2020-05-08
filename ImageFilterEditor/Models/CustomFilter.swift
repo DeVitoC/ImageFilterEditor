@@ -13,6 +13,8 @@ import CoreImage.CIFilterBuiltins
 import Photos
 
 struct CustomFilter {
+    
+    // MARK: - Properties
     var filterType: CIFilter
     let name: String
     let context = CIContext(options: nil)
@@ -22,6 +24,7 @@ struct CustomFilter {
     var angle: NSNumber?
     var intensity: NSNumber?
     
+    // MARK: - Methods
     public mutating func filterImage(_ image: UIImage, filterValue: CGFloat? = nil, centerPoint: CGPoint? = .zero, radius: CGFloat? = nil, angle: NSNumber? = nil, intensity: NSNumber? = nil) -> UIImage? {
         
         // UIImage -> CGImage -> CIImage

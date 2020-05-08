@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>640067506892-ki29jdpu3carbod450ik5p9j923j5ajr.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.640067506892-ki29jdpu3carbod450ik5p9j923j5ajr</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDVY1sku8ImODMY_B87b-UL4BbeRnUzpa8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>640067506892</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.christopherdevito.ImageFilterEditor</string>
+	<key>PROJECT_ID</key>
+	<string>lambdatimeline-9654e</string>
+	<key>STORAGE_BUCKET</key>
+	<string>lambdatimeline-9654e.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:640067506892:ios:4b29562c3d2d59479d6869</string>
+	<key>DATABASE_URL</key>
+	<string>https://lambdatimeline-9654e.firebaseio.com</string>
+</dict>
+</plist>
