@@ -44,16 +44,21 @@ class FilterSelectionViewController: UIViewController {
     
     // MARK: - IBActions
     @IBAction func selectPictureButton(_ sender: Any) {
-        
+        presentImagePickerController()
     }
     
     @IBAction func editFilterButton(_ sender: Any) {
-        performSegue(withIdentifier: "EditFilterSegue", sender: self)
+        if index != nil {
+            performSegue(withIdentifier: "EditFilterSegue", sender: self)
+        }
     }
     @IBAction func resetButton(_ sender: Any) {
-        imageView.image = savedOriginalImage
+        //imageView.image = savedOriginalImage
+        originalImage = savedOriginalImage
+        
     }
     
+    // MARK: - View Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         filterCollectionView.delegate = self
@@ -66,6 +71,17 @@ class FilterSelectionViewController: UIViewController {
     func updateViews() {
         imageView.image = scaledImage
         filterCollectionView.reloadData()
+    }
+    
+    // MARK: - Action Methods
+    
+    private func presentImagePickerController() {
+        guard UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else { return }
+        
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
+        present(imagePicker, animated: true, completion: nil)
     }
 
     // MARK: - Navigation
@@ -126,4 +142,20 @@ extension FilterSelectionViewController: UICollectionViewDataSource {
 
 extension FilterSelectionViewController: UICollectionViewDelegate {
     
+}
+
+extension FilterSelectionViewController: UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.originalImage] as? UIImage {
+            originalImage = image
+            savedOriginalImage = image
+        }
+        picker.dismiss(animated: true)
+    }
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true)
+    }
+}
+
+extension FilterSelectionViewController: UINavigationControllerDelegate {
 }

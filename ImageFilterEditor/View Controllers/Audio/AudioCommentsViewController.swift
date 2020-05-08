@@ -38,8 +38,14 @@ class AudioCommentsViewController: UIViewController {
         }
     }
     @IBAction func cancelButtonTapped(_ sender: Any) {
+        cancelTimer()
+        audioRecorder = nil
+        recordingURL = nil
+        recordingTime = 0.00
+        updateViews()
     }
     @IBAction func saveButtonTapped(_ sender: Any) {
+        saveAudioComment()
     }
     
 
@@ -52,20 +58,6 @@ class AudioCommentsViewController: UIViewController {
         audioCommentsTableView.delegate = self
         audioCommentsTableView.dataSource = self
         updateViews()
-        //audioCommentsTableView.reloadData()
-        
-//        do {
-//            try prepareAudioSession()
-//        } catch {
-//            print("Error preparing audio session: \(error)")
-//        }
-//
-//        networkController.fetchAudioComments {
-//            DispatchQueue.main.async {
-//                self.audioComments = self.networkController.audioComments
-//                self.audioCommentsTableView.reloadData()
-//            }
-//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -79,7 +71,6 @@ class AudioCommentsViewController: UIViewController {
             DispatchQueue.main.async {
                 self.audioComments = self.networkController.audioComments
                 self.audioCommentsTableView.reloadData()
-                
             }
         }
     }
@@ -197,6 +188,18 @@ class AudioCommentsViewController: UIViewController {
         audioRecorder?.stop()
         cancelTimer()
     }
+    
+    func saveAudioComment() {
+        if let recordingUrl = recordingURL, !isRecording {
+            let audioComment = networkController.createAudioComment(by: "Me", storedAt: recordingUrl) {
+                DispatchQueue.main.async {
+                    self.audioCommentsTableView.reloadData()
+                }
+            }
+            audioComments?.append(audioComment)
+        }
+        updateViews(stop: true)
+    }
 }
 
 extension AudioCommentsViewController: AVAudioRecorderDelegate {
@@ -208,14 +211,6 @@ extension AudioCommentsViewController: AVAudioRecorderDelegate {
     }
     
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-        if flag,
-            let recordingUrl = recordingURL {
-            networkController.createAudioComment(by: "Me", storedAt: recordingUrl) {
-                DispatchQueue.main.async {
-                    self.audioCommentsTableView.reloadData()
-                }
-            }
-        }
         updateViews(stop: true)
     }
 }
