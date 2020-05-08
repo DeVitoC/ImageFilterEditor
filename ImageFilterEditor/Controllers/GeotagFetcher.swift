@@ -19,8 +19,9 @@ class GeotagFetcher {
     var geotags: [Geotag] = []
     let baseURL = URL(string: "https://lambdatimeline-9654e.firebaseio.com/")!
     
-    func createGeotag(at location: [Double], onDate date: Date, completion: @escaping () -> Void) {
+    func createGeotag(at location: [Double], completion: @escaping () -> Void) -> Geotag {
         
+        let date = Date()
         let geotag = Geotag(latitude: location[0], longitude: location[1], time: date)
         geotags.append(geotag)
         
@@ -46,6 +47,7 @@ class GeotagFetcher {
             
             completion()
         }.resume()
+        return geotag
     }
     
     func fetchGeotags(completion: @escaping () -> Void) {
@@ -78,7 +80,7 @@ class GeotagFetcher {
         }.resume()
     }
     
-    func createGeotag(latitude: Double, longitude: Double) {
-        
-    }
+//    func createGeotag(latitude: Double, longitude: Double) {
+//        
+//    }
 }

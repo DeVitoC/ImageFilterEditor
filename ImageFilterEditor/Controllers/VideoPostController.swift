@@ -12,6 +12,8 @@ import AVFoundation
 class VideoPostController {
     var videoPosts: [VideoPost] = []
     var videoPostsDict: [String : VideoPost] = [:]
+    let geotagFetcher = GeotagFetcher()
+    
     let baseURL = URL(string: "https://lambdatimeline-9654e.firebaseio.com/")!
     
     func createVideoPost(by author: String, storedAt url: URL, completion: @escaping () -> Void) {
@@ -24,11 +26,15 @@ class VideoPostController {
             completion()
             return
         }
+        
+        // TODO: - pass location information to method instead of 0.00, 0.00.
+        let geotag = geotagFetcher.createGeotag(at: [0.00, 0.00]) {
+            
+        }
         let videoPost = VideoPost(author: author, video: data, geotag: geotag, videoURL: url)
         videoPosts.append(videoPost)
         
         let requestURL = baseURL.appendingPathComponent("videoPosts").appendingPathExtension("json")
-        //let requestURL = baseURL.appendingPathExtension("json")
         
         var request = URLRequest(url: requestURL)
         
